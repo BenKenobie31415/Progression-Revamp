@@ -1,0 +1,13 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "item/knowledge_book"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 1}, "model": "progression_revamp:item/knowledge_book/trident" },
+		{ "predicate": { "custom_model_data": 2}, "model": "progression_revamp:item/knowledge_book/end_crystal"},
+		{ "predicate": { "custom_model_data": 3}, "model": "progression_revamp:item/knowledge_book/anvil"},
+		{ "predicate": { "custom_model_data": 4}, "model": "progression_revamp:item/knowledge_book/beacon"},
+		{ "predicate": { "custom_model_data": 5}, "model": "progression_revamp:item/knowledge_book/diamond_gear"}
+	]
+}

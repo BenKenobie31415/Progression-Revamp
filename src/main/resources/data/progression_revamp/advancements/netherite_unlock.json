@@ -1,0 +1,73 @@
+{
+    "parent": "minecraft:adventure/kill_a_mob",
+    "criteria": {
+      "minecraft:elder_guardian": {
+        "trigger": "minecraft:player_killed_entity",
+        "conditions": {
+          "entity": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type": "minecraft:elder_guardian"
+              }
+            }
+          ]
+        }
+      },
+      "minecraft:ender_dragon": {
+        "trigger": "minecraft:player_killed_entity",
+        "conditions": {
+          "entity": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type": "minecraft:ender_dragon"
+              }
+            }
+          ]
+        }
+      },
+      "minecraft:wither": {
+        "trigger": "minecraft:player_killed_entity",
+        "conditions": {
+          "entity": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type": "minecraft:wither"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "minecraft:ender_dragon"
+      ],
+      [
+        "minecraft:elder_guardian"
+      ],
+      [
+        "minecraft:wither"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "minecraft:netherite_helmet_smithing",
+        "minecraft:netherite_chestplate_smithing",
+        "minecraft:netherite_leggings_smithing",
+        "minecraft:netherite_boots_smithing",
+        "minecraft:netherite_sword_smithing",
+        "minecraft:netherite_pickaxe_smithing",
+        "minecraft:netherite_axe_smithing",
+        "minecraft:netherite_shovel_smithing",
+        "minecraft:netherite_hoe_smithing",
+        "minecraft:netherite_block"
+      ]
+    }
+  }
+  

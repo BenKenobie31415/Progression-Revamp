@@ -1,0 +1,15 @@
+{
+    "name": "progression_revamp:end_pyramid",
+    "fallback": "minecraft:empty",
+    "elements": [
+        {
+            "weight": 1,
+            "element": {
+                "location": "progression_revamp:end_pyramid/var1",
+                "processors": "minecraft:empty",
+                "projection": "rigid",
+                "element_type": "minecraft:single_pool_element"
+            }
+        }
+    ]
+}
