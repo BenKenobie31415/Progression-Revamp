@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtFloat;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -73,16 +74,6 @@ public class EtheralSword extends SwordItem {
         }
     }
 
-    private void playChargeEffect(LivingEntity attacker) {
-        World world = attacker.getWorld();
-        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_SCULK_SENSOR_CLICKING, SoundCategory.PLAYERS, 1.0F, 1.0F);
-    }
-
-    private void playEnchantChargeEffect(LivingEntity attacker) {
-        World world = attacker.getWorld();
-        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
-    }
-
     private void charge(ItemStack itemStack, LivingEntity attacker) {
         NbtCompound nbtCompound = itemStack.getOrCreateNbt();
         nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(CHARGE_NBT_VALUE));
@@ -93,6 +84,16 @@ public class EtheralSword extends SwordItem {
         nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(ENCHANT_CHARGE_NBT_VALUE));
     }
 
+    private void playChargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.PLAYERS, 1.0F, 10.0F);
+    }
+
+    private void playEnchantChargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
+    }
+
     private void discharge(ItemStack itemStack) {
         NbtCompound nbtCompound = itemStack.getOrCreateNbt();
         nbtCompound.remove(CHARGE_NBT_KEY);
@@ -100,7 +101,7 @@ public class EtheralSword extends SwordItem {
 
     private void playDischargeEffect(LivingEntity attacker) {
         World world = attacker.getWorld();
-        world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.PLAYERS, 0.2F, 2.0F);
     }
 
     private void playEnchantDischargeEffect(LivingEntity attacker) {
