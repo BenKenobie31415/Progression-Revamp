@@ -3,49 +3,17 @@
     "pools": [
       {
         "bonus_rolls": 0.0,
+        "conditions": [
+          {
+            "chance": 0.5,
+            "condition": "minecraft:random_chance_with_looting",
+            "looting_multiplier": 0.0625
+          }
+        ],
         "entries": [
           {
             "type": "minecraft:item",
-            "functions": [
-              {
-                "add": false,
-                "count": {
-                  "type": "minecraft:uniform",
-                  "max": 2.0,
-                  "min": 0.0
-                },
-                "function": "minecraft:set_count"
-              },
-              {
-                "count": {
-                  "type": "minecraft:uniform",
-                  "max": 1.0,
-                  "min": 0.0
-                },
-                "function": "minecraft:looting_enchant"
-              }
-            ],
-            "name": "minecraft:gunpowder"
-          }
-        ],
-        "rolls": 1.0
-      },
-      {
-        "bonus_rolls": 0.0,
-        "conditions": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "killer",
-            "predicate": {
-              "type": "#minecraft:skeletons"
-            }
-          }
-        ],
-        "entries": [
-          {
-            "type": "minecraft:tag",
-            "expand": true,
-            "name": "minecraft:creeper_drop_music_discs"
+            "name": "minecraft:shulker_shell"
           }
         ],
         "rolls": 1.0
@@ -60,7 +28,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:1s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:projectile_protection\",lvl:1s}]}"
               }
             ]
           },
@@ -71,7 +39,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:2s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:projectile_protection\",lvl:2s}]}"
               }
             ]
           },
@@ -82,7 +50,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:3s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:projectile_protection\",lvl:3s}]}"
               }
             ]
           },
@@ -93,7 +61,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:4s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:projectile_protection\",lvl:4s}]}"
               }
             ]
           }

@@ -1,0 +1,40 @@
+{
+    "type": "minecraft:generic",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "weight": 40,
+            "name": "minecraft:enchanted_book",
+            "functions": [
+              {
+                "function": "minecraft:set_nbt",
+                "tag": "{StoredEnchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}]}"
+              }
+            ]
+          }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:damage_source_properties",
+          "predicate": {
+            "direct_entity": {
+              "type": "minecraft:player",
+              "equipment": {
+                "mainhand": {
+                  "items": [
+                    "progression_revamp:etheral_sword"
+                  ],
+                  "nbt": "{Charge:0.5f}"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+  

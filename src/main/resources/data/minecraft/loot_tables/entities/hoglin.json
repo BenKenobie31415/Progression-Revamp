@@ -11,7 +11,50 @@
                 "add": false,
                 "count": {
                   "type": "minecraft:uniform",
-                  "max": 2.0,
+                  "max": 4.0,
+                  "min": 2.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "conditions": [
+                  {
+                    "condition": "minecraft:entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                      "flags": {
+                        "is_on_fire": true
+                      }
+                    }
+                  }
+                ],
+                "function": "minecraft:furnace_smelt"
+              },
+              {
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:looting_enchant"
+              }
+            ],
+            "name": "minecraft:porkchop"
+          }
+        ],
+        "rolls": 1.0
+      },
+      {
+        "bonus_rolls": 0.0,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
                   "min": 0.0
                 },
                 "function": "minecraft:set_count"
@@ -25,27 +68,7 @@
                 "function": "minecraft:looting_enchant"
               }
             ],
-            "name": "minecraft:gunpowder"
-          }
-        ],
-        "rolls": 1.0
-      },
-      {
-        "bonus_rolls": 0.0,
-        "conditions": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "killer",
-            "predicate": {
-              "type": "#minecraft:skeletons"
-            }
-          }
-        ],
-        "entries": [
-          {
-            "type": "minecraft:tag",
-            "expand": true,
-            "name": "minecraft:creeper_drop_music_discs"
+            "name": "minecraft:leather"
           }
         ],
         "rolls": 1.0
@@ -60,7 +83,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:1s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:knockback\",lvl:1s}]}"
               }
             ]
           },
@@ -71,29 +94,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:2s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 20,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:3s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 10,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:4s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:knockback\",lvl:2s}]}"
               }
             ]
           }

@@ -25,7 +25,7 @@
                 "function": "minecraft:looting_enchant"
               }
             ],
-            "name": "minecraft:gunpowder"
+            "name": "minecraft:rotten_flesh"
           }
         ],
         "rolls": 1.0
@@ -34,18 +34,18 @@
         "bonus_rolls": 0.0,
         "conditions": [
           {
-            "condition": "minecraft:entity_properties",
-            "entity": "killer",
-            "predicate": {
-              "type": "#minecraft:skeletons"
-            }
+            "condition": "minecraft:killed_by_player"
+          },
+          {
+            "chance": 0.11,
+            "condition": "minecraft:random_chance_with_looting",
+            "looting_multiplier": 0.02
           }
         ],
         "entries": [
           {
-            "type": "minecraft:tag",
-            "expand": true,
-            "name": "minecraft:creeper_drop_music_discs"
+            "type": "minecraft:item",
+            "name": "minecraft:copper_ingot"
           }
         ],
         "rolls": 1.0
@@ -55,45 +55,34 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "weight": 40,
+            "weight": 50,
             "name": "minecraft:enchanted_book",
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:1s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:respiration\",lvl:1s}]}"
               }
             ]
           },
           {
             "type": "minecraft:item",
-            "weight": 30,
+            "weight": 35,
             "name": "minecraft:enchanted_book",
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:2s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:respiration\",lvl:2s}]}"
               }
             ]
           },
           {
             "type": "minecraft:item",
-            "weight": 20,
+            "weight": 15,
             "name": "minecraft:enchanted_book",
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:3s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 10,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:4s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:respiration\",lvl:3s}]}"
               }
             ]
           }

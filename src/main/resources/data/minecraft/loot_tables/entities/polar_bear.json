@@ -8,6 +8,20 @@
             "type": "minecraft:item",
             "functions": [
               {
+                "conditions": [
+                  {
+                    "condition": "minecraft:entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                      "flags": {
+                        "is_on_fire": true
+                      }
+                    }
+                  }
+                ],
+                "function": "minecraft:furnace_smelt"
+              },
+              {
                 "add": false,
                 "count": {
                   "type": "minecraft:uniform",
@@ -25,27 +39,45 @@
                 "function": "minecraft:looting_enchant"
               }
             ],
-            "name": "minecraft:gunpowder"
-          }
-        ],
-        "rolls": 1.0
-      },
-      {
-        "bonus_rolls": 0.0,
-        "conditions": [
+            "name": "minecraft:cod",
+            "weight": 3
+          },
           {
-            "condition": "minecraft:entity_properties",
-            "entity": "killer",
-            "predicate": {
-              "type": "#minecraft:skeletons"
-            }
-          }
-        ],
-        "entries": [
-          {
-            "type": "minecraft:tag",
-            "expand": true,
-            "name": "minecraft:creeper_drop_music_discs"
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "conditions": [
+                  {
+                    "condition": "minecraft:entity_properties",
+                    "entity": "this",
+                    "predicate": {
+                      "flags": {
+                        "is_on_fire": true
+                      }
+                    }
+                  }
+                ],
+                "function": "minecraft:furnace_smelt"
+              },
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 2.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:looting_enchant"
+              }
+            ],
+            "name": "minecraft:salmon"
           }
         ],
         "rolls": 1.0
@@ -60,7 +92,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:1s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:riptide\",lvl:1s}]}"
               }
             ]
           },
@@ -71,7 +103,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:2s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:riptide\",lvl:2s}]}"
               }
             ]
           },
@@ -82,18 +114,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:3s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 10,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:blast_protection\",lvl:4s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:riptide\",lvl:3s}]}"
               }
             ]
           }

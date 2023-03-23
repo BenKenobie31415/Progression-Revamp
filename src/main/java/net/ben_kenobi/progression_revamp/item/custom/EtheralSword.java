@@ -1,21 +1,95 @@
 package net.ben_kenobi.progression_revamp.item.custom;
 
+import java.util.List;
+
+import net.ben_kenobi.progression_revamp.ModEntityTags;
+import net.ben_kenobi.progression_revamp.ModToolMaterials;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtFloat;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Rarity;
+import net.minecraft.world.World;
 
 public class EtheralSword extends SwordItem {
+    private static final String CHARGE_NBT_KEY = "Charge";
+    private static final float ENCHANT_CHARGE_NBT_VALUE = 0.5F;
+    private static final float CHARGE_NBT_VALUE = 1.0F;
 
     public EtheralSword() {
-        super(ToolMaterials.GOLD, 4, -2.4f, new Settings().rarity(Rarity.EPIC));
+        super(ModToolMaterials.ETHERAL, 4, -2.4f, new Settings().rarity(Rarity.RARE));
     }
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         super.postHit(stack, target, attacker);
-        //attacker.sendMessage(Text.literal("test"));
+
+        if (target.isAlive()) return true;
+
+        if (stack.getNbt().get(CHARGE_NBT_KEY) != null) {
+            discharge(stack, attacker);
+            return true;
+        }
+
+        if (target.getType().isIn(ModEntityTags.CHARGE_ETHERAL_SWORD_ON_KILL))
+            charge(stack, attacker);
+        if (target.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL))
+            enchantCharge(stack, attacker);
+
         return true;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+        float charge = stack.getNbt().getFloat(CHARGE_NBT_KEY);
+        if (charge == 0.0F) {
+            tooltip.add(Text.translatable("item.progression_revamp.etheral_sword.tooltip_uncharged").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+            return;
+        }
+        if (charge == 0.5F) {
+            tooltip.add(Text.translatable("item.progression_revamp.etheral_sword.tooltip_enchant_charged").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+            return;
+        }
+        if (charge == 1.0F) {
+            tooltip.add(Text.translatable("item.progression_revamp.etheral_sword.tooltip_charged").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+            return;
+        }
+    }
+
+    private void enchantCharge(ItemStack itemStack, LivingEntity attacker) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(ENCHANT_CHARGE_NBT_VALUE));
+    }
+
+    private void charge(ItemStack itemStack, LivingEntity attacker) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(CHARGE_NBT_VALUE));
+    }
+
+    private void discharge(ItemStack itemStack, LivingEntity attacker) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        if (itemStack.getNbt().getFloat(CHARGE_NBT_KEY) == ENCHANT_CHARGE_NBT_VALUE) {
+            playEnchantDischargeEffect(attacker);
+        }
+        if (itemStack.getNbt().getFloat(CHARGE_NBT_KEY) == CHARGE_NBT_VALUE) {
+            playDischargeEffect(attacker);
+        }
+        nbtCompound.remove(CHARGE_NBT_KEY);
+    }
+
+    private void playEnchantDischargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+    }
+
+    private void playDischargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.PLAYERS, 1.0F, 1.0F);
     }
 }
