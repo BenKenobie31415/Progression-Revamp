@@ -32,15 +32,26 @@ public class EtheralSword extends SwordItem {
 
         if (target.isAlive()) return true;
 
-        if (stack.getNbt().get(CHARGE_NBT_KEY) != null) {
-            discharge(stack, attacker);
+        if (stack.getNbt().get(CHARGE_NBT_KEY) != null
+            && target.getType().isIn(ModEntityTags.ENCHANT_DISCHARGE_ETHERAL_SWORD_ON_KILL)) {
+            if (stack.getNbt().getFloat(CHARGE_NBT_KEY) == ENCHANT_CHARGE_NBT_VALUE) {
+                playEnchantDischargeEffect(attacker);
+            }
+            if (stack.getNbt().getFloat(CHARGE_NBT_KEY) == CHARGE_NBT_VALUE) {
+                playDischargeEffect(attacker);
+            }
+            discharge(stack);
             return true;
         }
 
-        if (target.getType().isIn(ModEntityTags.CHARGE_ETHERAL_SWORD_ON_KILL))
+        if (target.getType().isIn(ModEntityTags.CHARGE_ETHERAL_SWORD_ON_KILL)) {
+            playChargeEffect(attacker);
             charge(stack, attacker);
-        if (target.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL))
+        }
+        if (target.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL)) {
+            playEnchantChargeEffect(attacker);
             enchantCharge(stack, attacker);
+        }
 
         return true;
     }
@@ -62,9 +73,14 @@ public class EtheralSword extends SwordItem {
         }
     }
 
-    private void enchantCharge(ItemStack itemStack, LivingEntity attacker) {
-        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
-        nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(ENCHANT_CHARGE_NBT_VALUE));
+    private void playChargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_SCULK_SENSOR_CLICKING, SoundCategory.PLAYERS, 1.0F, 1.0F);
+    }
+
+    private void playEnchantChargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
     }
 
     private void charge(ItemStack itemStack, LivingEntity attacker) {
@@ -72,24 +88,23 @@ public class EtheralSword extends SwordItem {
         nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(CHARGE_NBT_VALUE));
     }
 
-    private void discharge(ItemStack itemStack, LivingEntity attacker) {
+    private void enchantCharge(ItemStack itemStack, LivingEntity attacker) {
         NbtCompound nbtCompound = itemStack.getOrCreateNbt();
-        if (itemStack.getNbt().getFloat(CHARGE_NBT_KEY) == ENCHANT_CHARGE_NBT_VALUE) {
-            playEnchantDischargeEffect(attacker);
-        }
-        if (itemStack.getNbt().getFloat(CHARGE_NBT_KEY) == CHARGE_NBT_VALUE) {
-            playDischargeEffect(attacker);
-        }
-        nbtCompound.remove(CHARGE_NBT_KEY);
+        nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(ENCHANT_CHARGE_NBT_VALUE));
     }
 
-    private void playEnchantDischargeEffect(LivingEntity attacker) {
-        World world = attacker.getWorld();
-        world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+    private void discharge(ItemStack itemStack) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.remove(CHARGE_NBT_KEY);
     }
 
     private void playDischargeEffect(LivingEntity attacker) {
         World world = attacker.getWorld();
         world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.PLAYERS, 1.0F, 1.0F);
+    }
+
+    private void playEnchantDischargeEffect(LivingEntity attacker) {
+        World world = attacker.getWorld();
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.PLAYERS, 1.0F, 1.0F);
     }
 }

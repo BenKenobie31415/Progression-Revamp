@@ -1,0 +1,30 @@
+{
+    "values": [
+        "minecraft:allay",
+        "minecraft:axolotl",
+        "minecraft:blaze",
+        "minecraft:cat",
+        "minecraft:cave_spider",
+        "minecraft:creeper",
+        "minecraft:dolphin",
+        "minecraft:drowned",
+        "minecraft:elder_guardian",
+        "minecraft:enderman",
+        "minecraft:endermite",
+        "minecraft:evoker",
+        "minecraft:ghast",
+        "minecraft:glow_squid",
+        "minecraft:guardian",
+        "minecraft:hoglin",
+        "minecraft:husk",
+        "minecraft:iron_golem",
+        "minecraft:llama",
+        "minecraft:piglin_brute",
+        "minecraft:piglin",
+        "minecraft:pillager",
+        "minecraft:polar_bear",
+        "minecraft:pufferfish",
+        "minecraft:ravager",
+        "minecraft:salmon"
+    ]
+}
