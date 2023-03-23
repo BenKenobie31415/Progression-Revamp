@@ -8,7 +8,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtFloat;
-import net.minecraft.nbt.NbtInt;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
@@ -22,16 +21,38 @@ public class EtheralSwordKillHandler implements AfterKilledOtherEntity {
                 etheralSwordStack = itemStack;
             }
         }
-        if (etheralSwordStack != null) {
-            NbtCompound nbtCompound = etheralSwordStack.getOrCreateNbt();
-            if (killedEntity.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL)) {
-                entity.sendMessage(Text.literal("enchantcharge sword"));
-                nbtCompound.put("Charge", NbtFloat.of(0.5f));
-            }
-            if (killedEntity.getType().isIn(ModEntityTags.CHARGE_ETHERAL_SWORD_ON_KILL)) {
-                entity.sendMessage(Text.literal("charge sword"));
-                nbtCompound.put("Charge", NbtFloat.of(1));
-            }
+        if (etheralSwordStack == null) return;
+
+        if (etheralSwordStack.getNbt().get("Charge") != null) {
+            //discharge(etheralSwordStack);
+            return;
         }
+
+        if (killedEntity.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL)) {
+            enchantCharge(etheralSwordStack);
+        }
+        if (killedEntity.getType().isIn(ModEntityTags.CHARGE_ETHERAL_SWORD_ON_KILL)) {
+            charge(etheralSwordStack);
+        }
+    }
+
+    private void enchantCharge(ItemStack itemStack) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.put("Charge", NbtFloat.of(0.5f));
+    }
+
+    private void enchantDischarge(ItemStack itemStack) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.remove("Charge");
+    }
+
+    private void charge(ItemStack itemStack) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.put("Charge", NbtFloat.of(1.0f));
+    }
+
+    private void discharge(ItemStack itemStack) {
+        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
+        nbtCompound.remove("Charge");
     }
 }
