@@ -1,7 +1,7 @@
 package net.ben_kenobi.progression_revamp.item;
 
 import net.ben_kenobi.progression_revamp.ProgressionRevamp;
-import net.ben_kenobi.progression_revamp.item.cusotm.EtheralSword;
+import net.ben_kenobi.progression_revamp.item.custom.EtheralSword;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

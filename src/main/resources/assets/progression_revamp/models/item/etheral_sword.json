@@ -1,6 +1,11 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "progression_revamp:item/etheral_sword"
-	}
+		"layer0": "progression_revamp:item/etheral_sword/uncharged"
+	},
+	"overrides": [
+		{ "predicate": { "etheral_charge": 0}, "model": "progression_revamp:item/etheral_sword/charge_0" },
+		{ "predicate": { "etheral_charge": 0.5}, "model": "progression_revamp:item/etheral_sword/charge_1" },
+		{ "predicate": { "etheral_charge": 1}, "model": "progression_revamp:item/etheral_sword/charge_2" }
+	]
 }
