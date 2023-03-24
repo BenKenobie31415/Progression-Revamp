@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#L#",
+        "LCL",
+        "#L#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:obsidian"
+        },
+        "L": {
+            "item": "progression_revamp:lapis_shard"
+        },
+        "C": {
+            "item": "minecraft:crying_obsidian"
+        }
+    },
+    "result": {
+        "item": "minecraft:lapis_lazuli",
+        "count": 1
+    }
+}

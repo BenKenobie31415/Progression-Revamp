@@ -17,6 +17,7 @@ public class ModItems {
 
     public static final Item ETHERAL_SWORD = registerItem("etheral_sword", new EtheralSword(), ItemGroups.COMBAT);
     public static final Item BROKEN_SWORD = registerItem("broken_sword", new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
+    public static final Item LAPIS_SHARD = registerItem("lapis_shard", new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
 
     private static Item registerItem(String name, Item item, ItemGroup group) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));

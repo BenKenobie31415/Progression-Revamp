@@ -360,7 +360,6 @@
         "minecraft:jungle_slab",
         "minecraft:jungle_stairs",
         "minecraft:jungle_wood",
-        "minecraft:lapis_block",
         "minecraft:light_blue_concrete_powder",
         "minecraft:light_blue_stained_glass",
         "minecraft:light_blue_terracotta",
@@ -974,11 +973,6 @@
         "minecraft:iron_nugget",
         "minecraft:iron_nugget_from_blasting",
         "minecraft:iron_nugget_from_smelting",
-        "minecraft:lapis_lazuli",
-        "minecraft:lapis_lazuli_from_blasting_deepslate_lapis_ore",
-        "minecraft:lapis_lazuli_from_blasting_lapis_ore",
-        "minecraft:lapis_lazuli_from_smelting_deepslate_lapis_ore",
-        "minecraft:lapis_lazuli_from_smelting_lapis_ore",
         "minecraft:leather",
         "minecraft:leather_horse_armor",
         "minecraft:light_blue_dye_from_blue_orchid",
@@ -1060,7 +1054,10 @@
         "minecraft:tnt_minecart",
         "minecraft:warped_fungus_on_a_stick",
         "progression_revamp:tinted_glass",
-        "progression_revamp:lodestone"
+        "progression_revamp:lodestone",
+        "progression_revamp:lapis_from_shard",
+        "progression_revamp:lapis_block_from_shard",
+        "progression_revamp:lapis_shard_from_block"
       ]
     }
   }
