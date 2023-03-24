@@ -1057,7 +1057,11 @@
         "progression_revamp:lodestone",
         "progression_revamp:lapis_from_shard",
         "progression_revamp:lapis_block_from_shard",
-        "progression_revamp:lapis_shard_from_block"
+        "progression_revamp:lapis_shard_from_block",
+        "progression_revamp:lapis_shard_from_ore_smelting",
+        "progression_revamp:lapis_shard_from_ore_blasting",
+        "progression_revamp:lapis_shard_from_deepslate_ore_smelting",
+        "progression_revamp:lapis_shard_from_deepslate_ore_blasting"
       ]
     }
   }
