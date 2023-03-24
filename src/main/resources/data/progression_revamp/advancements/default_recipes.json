@@ -1053,15 +1053,15 @@
         "minecraft:spruce_chest_boat",
         "minecraft:tnt_minecart",
         "minecraft:warped_fungus_on_a_stick",
+        "minecraft:lapis_lazuli_from_blasting_deepslate_lapis_ore",
+        "minecraft:lapis_lazuli_from_blasting_lapis_ore",
+        "minecraft:lapis_lazuli_from_smelting_deepslate_lapis_ore",
+        "minecraft:lapis_lazuli_from_smelting_lapis_ore",
         "progression_revamp:tinted_glass",
         "progression_revamp:lodestone",
         "progression_revamp:lapis_from_shard",
         "progression_revamp:lapis_block_from_shard",
-        "progression_revamp:lapis_shard_from_block",
-        "progression_revamp:lapis_shard_from_ore_smelting",
-        "progression_revamp:lapis_shard_from_ore_blasting",
-        "progression_revamp:lapis_shard_from_deepslate_ore_smelting",
-        "progression_revamp:lapis_shard_from_deepslate_ore_blasting"
+        "progression_revamp:lapis_shard_from_block"
       ]
     }
   }

@@ -7,5 +7,7 @@
     "item.progression_revamp.etheral_sword.tooltip_charged": "Charged",
     "item.progression_revamp.lapis_shard": "Lapis Shard",
     "item.minecraft.lapis_lazuli": "Lapis Catalyst",
-    "item.minecraft.lapis_block": "Block of Lapis"
+    "block.minecraft.lapis_block": "Block of Lapis",
+    "block.minecraft.lapis_ore": "Lapis Ore",
+    "block.minecraft.deepslate_lapis_ore": "Deepslate Lapis Ore"
 }
