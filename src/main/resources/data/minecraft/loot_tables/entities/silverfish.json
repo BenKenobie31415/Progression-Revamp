@@ -11,7 +11,7 @@
             "functions": [
               {
                 "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}]}"
+                "tag": "{StoredEnchantments:[{id:\"minecraft:binding_curse\",lvl:1s}]}"
               }
             ]
           }
