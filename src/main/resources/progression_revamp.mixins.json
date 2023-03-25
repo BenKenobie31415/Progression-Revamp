@@ -6,7 +6,9 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "AnvilLevelCostLimiter",
+    "RepairCostOverwriter"
   ],
   "injectors": {
     "defaultRequire": 1
