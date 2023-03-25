@@ -25,6 +25,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        ProgressionRevamp.LOGGER.debug("Registerring Mod Items for " + ProgressionRevamp.MOD_ID);
+        ProgressionRevamp.LOGGER.info("Registering items for " + ProgressionRevamp.MOD_ID);
     }
 }

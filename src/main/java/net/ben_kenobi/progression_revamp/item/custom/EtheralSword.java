@@ -4,6 +4,8 @@ import java.util.List;
 
 import net.ben_kenobi.progression_revamp.ModEntityTags;
 import net.ben_kenobi.progression_revamp.ModToolMaterials;
+import net.ben_kenobi.progression_revamp.block.ModBlocks;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
@@ -16,6 +18,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EtheralSword extends SwordItem {
@@ -58,6 +61,16 @@ public class EtheralSword extends SwordItem {
     }
 
     @Override
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+        super.postMine(stack, world, state, pos, miner);
+        if (state.getBlock() == ModBlocks.CHARGED_OBSIDIAN) {
+            charge(stack, miner);
+            playChargeEffect(miner);
+        }
+        return true;
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         float charge = stack.getNbt().getFloat(CHARGE_NBT_KEY);
         if (charge == 0.0F) {
@@ -86,7 +99,7 @@ public class EtheralSword extends SwordItem {
 
     private void playChargeEffect(LivingEntity attacker) {
         World world = attacker.getWorld();
-        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.PLAYERS, 1.0F, 10.0F);
+        world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.PLAYERS, 1.0F, 10.0F);
     }
 
     private void playEnchantChargeEffect(LivingEntity attacker) {

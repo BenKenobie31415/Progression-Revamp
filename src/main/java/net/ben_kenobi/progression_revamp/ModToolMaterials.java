@@ -10,7 +10,7 @@ import net.minecraft.recipe.Ingredient;
 
 public enum ModToolMaterials implements ToolMaterial {
 
-    ETHERAL(MiningLevels.WOOD, 32, 2.0f, 0.0f, 1, () -> Ingredient.ofItems(ModItems.DIMANESIONAL_INGOT));
+    ETHERAL(5, 32, 12.0f, 0.0f, 1, () -> Ingredient.ofItems(ModItems.DIMANESIONAL_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;

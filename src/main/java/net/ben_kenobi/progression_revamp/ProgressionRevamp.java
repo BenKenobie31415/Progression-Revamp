@@ -3,6 +3,7 @@ package net.ben_kenobi.progression_revamp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import net.ben_kenobi.progression_revamp.block.ModBlocks;
 import net.ben_kenobi.progression_revamp.event.GameRuleHandler;
 import net.ben_kenobi.progression_revamp.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -15,6 +16,7 @@ public class ProgressionRevamp implements ModInitializer {
     @Override
     public void onInitialize() {
         ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
 
         ServerLifecycleEvents.START_DATA_PACK_RELOAD.register(new GameRuleHandler());
     }
