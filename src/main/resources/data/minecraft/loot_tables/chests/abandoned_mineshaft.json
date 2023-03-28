@@ -12,22 +12,37 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 1,
           "name": "minecraft:enchanted_golden_apple"
         },
         {
           "type": "minecraft:item",
-          "weight": 30,
+          "weight": 20,
           "name": "minecraft:name_tag"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:book"
         },
         {
           "type": "minecraft:item",
           "weight": 5,
           "name": "minecraft:iron_pickaxe"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:night_vision"
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
         },
         {
           "type": "minecraft:empty",
@@ -94,30 +109,14 @@
         {
           "type": "minecraft:item",
           "weight": 5,
-          "name": "minecraft:lapis_lazuli",
+          "name": "progression_revamp:lapis_shard",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 4,
-                "max": 9
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "minecraft:diamond",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 2
+                "min": 2,
+                "max": 5
               },
               "add": false
             }
@@ -166,54 +165,6 @@
                 "type": "minecraft:uniform",
                 "min": 3,
                 "max": 6
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:melon_seeds",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 4
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:pumpkin_seeds",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 4
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:beetroot_seeds",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 4
               },
               "add": false
             }
@@ -304,6 +255,21 @@
               "add": false
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:cobweb",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
         }
       ]
     },
@@ -312,6 +278,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 10,
           "name": "minecraft:knowledge_book",
           "functions": [
             {
@@ -319,12 +286,54 @@
               "tag": "{display:{Name:'{\"text\":\"Knowledge Book\",\"color\":\"white\",\"italic\":false}',Lore:['{\"text\":\"Diamond Helmet\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Chestplate\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Leggings\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Boots\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Sword\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Pickaxe\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Axe\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Shovel\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Diamond Hoe\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Block of Diamond\",\"color\":\"gray\",\"italic\":true}']},CustomModelData:5,Recipes:[\"minecraft:diamond_helmet\",\"minecraft:diamond_chestplate\",\"minecraft:diamond_leggings\",\"minecraft:diamond_boots\",\"minecraft:diamond_sword\",\"minecraft:diamond_pickaxe\",\"minecraft:diamond_axe\",\"minecraft:diamond_shovel\",\"minecraft:diamond_hoe\",\"minecraft:diamond_block\"]}"
             }
           ]
-        }
-      ],
-      "conditions": [
+        },
         {
-          "condition": "minecraft:random_chance",
-          "chance": 0.2
+          "type": "minecraft:item",
+          "weight": 14,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:efficiency\"}]}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 2s, id: \"minecraft:efficiency\"}]}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:fortune\"}]}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:silk_touch\"}]}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 60
         }
       ]
     }

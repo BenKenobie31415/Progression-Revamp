@@ -204,13 +204,28 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:map",
+          "name": "minecraft:compass",
+          "functions": [
+            {
+              "function": "progression_revamp:exploration_compass",
+              "destination": "minecraft:ruined_portal",
+              "skip_existing_chunks": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:filled_map",
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "decoration": "red_x",
-              "zoom": 1,
-              "destination": "progression_revamp:end_pyramid",
+              "destination": "minecraft:ruined_portal",
+              "decoration": "target_point",
               "skip_existing_chunks": false
             }
           ]
