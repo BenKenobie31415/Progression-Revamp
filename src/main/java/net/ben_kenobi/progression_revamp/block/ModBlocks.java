@@ -24,7 +24,7 @@ public class ModBlocks {
                     .luminance(10)
                     .sounds(BlockSoundGroup.AMETHYST_BLOCK)
                     .requiresTool()
-                    .strength(40.0f, 5.0f)), ItemGroups.FUNCTIONAL);
+                    .strength(40.0f, 1200.0f)), ItemGroups.FUNCTIONAL);
 
     private static Block registerBlock(String name, Block block, ItemGroup group) {
         registerBlockItem(name, block, group);
