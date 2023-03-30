@@ -294,6 +294,23 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:compass",
+          "functions": [
+            {
+              "function": "progression_revamp:exploration_compass",
+              "destination": "progression_revamp:end_pyramid",
+              "dimension": "the_end",
+              "skip_existing_chunks": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

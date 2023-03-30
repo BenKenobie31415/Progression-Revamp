@@ -198,39 +198,6 @@
           "chance": 0.1
         }
       ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:compass",
-          "functions": [
-            {
-              "function": "progression_revamp:exploration_compass",
-              "destination": "minecraft:ruined_portal",
-              "skip_existing_chunks": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:filled_map",
-          "functions": [
-            {
-              "function": "minecraft:exploration_map",
-              "destination": "minecraft:ruined_portal",
-              "decoration": "target_point",
-              "skip_existing_chunks": false
-            }
-          ]
-        }
-      ]
     }
   ]
 }

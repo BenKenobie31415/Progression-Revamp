@@ -4,7 +4,6 @@ import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 
 import net.ben_kenobi.progression_revamp.item.ModItems;
-import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
