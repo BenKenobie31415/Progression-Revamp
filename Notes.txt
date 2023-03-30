@@ -1,0 +1,56 @@
+mineshaft:
+    silk touch
+    fortune
+    diamond equipment recipe
+
+ancient city ice:
+    diamond equipment
+
+ancient city:
+    swiftsneak
+    recovery compass
+
+bastion bridge:
+
+bastion stable:
+
+bastion other:
+    fire protection
+
+bastion treasure
+    unbreaking
+
+desert pyramid:
+
+end city:
+    anvil reipe
+
+igloo:
+
+jugle temple:
+
+fortress:
+
+pillager outpost:
+
+ruined portal:
+
+shipwreck map:
+
+shipwreck supply:
+
+shipwreck treasure:
+
+dungeon:
+
+stronghold corridor:
+
+stronghold crossing:
+
+stronghold library:
+
+underwater ruin big:
+
+underwater ruin small:
+
+woodland mansion:
