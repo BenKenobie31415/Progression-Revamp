@@ -26,23 +26,25 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.StructureTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.structure.Structure;
 
 public class ExplorationCompassLootFunction extends ConditionalLootFunction {
     public static final TagKey<Structure> DEFAULT_DESTINATION = StructureTags.ON_TREASURE_MAPS;
     final TagKey<Structure> destination;
+    final RegistryKey<World> dimensionKey;
     final int searchRadius;
     final boolean skipExistingChunks;
 
-    protected ExplorationCompassLootFunction(LootCondition[] conditions, TagKey<Structure> destination, int searchRadius, boolean skipExistingChunks) {
+    protected ExplorationCompassLootFunction(LootCondition[] conditions, TagKey<Structure> destination, RegistryKey<World> dimensionKey, int searchRadius, boolean skipExistingChunks) {
         super(conditions);
         this.destination = destination;
+        this.dimensionKey = dimensionKey;
         this.searchRadius = searchRadius;
         this.skipExistingChunks = skipExistingChunks;
     }
@@ -65,11 +67,10 @@ public class ExplorationCompassLootFunction extends ConditionalLootFunction {
             return stack;
         }
         Vec3d vec3d = context.get(LootContextParameters.ORIGIN);
-        if (vec3d != null && (blockPos = (serverWorld = context.getWorld()).locateStructure(this.destination, BlockPos.ofFloored(vec3d), this.searchRadius, this.skipExistingChunks)) != null) {
-            ProgressionRevamp.LOGGER.info("notnull");
+        // TODO does not adjust coords for compressed dimensions
+        if (vec3d != null && (blockPos = (serverWorld = context.getWorld().getServer().getWorld(dimensionKey)).locateStructure(this.destination, BlockPos.ofFloored(vec3d), this.searchRadius, this.skipExistingChunks)) != null) {
             NbtCompound nbt = stack.getOrCreateNbt();
             this.writeNbt(serverWorld.getRegistryKey(), blockPos, nbt);
-            stack.setCustomName(Text.translatable("item.minecraft.compass.loded"));
         }
         return stack;
     }
@@ -87,9 +88,11 @@ public class ExplorationCompassLootFunction extends ConditionalLootFunction {
         public ExplorationCompassLootFunction fromJson(JsonObject jsonObject, JsonDeserializationContext var2,
                 LootCondition[] lootConditions) {
             TagKey<Structure> tagKey = Serializer.getDestination(jsonObject);
+            String dimensionValue = JsonHelper.getString(jsonObject, "dimension", "overworld");
+            RegistryKey<World> dimensionKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dimensionValue));
             int i = JsonHelper.getInt(jsonObject, "search_radius", 50);
             boolean bl = JsonHelper.getBoolean(jsonObject, "skip_existing_chunks", true);
-            return new ExplorationCompassLootFunction(lootConditions, tagKey, i, bl);
+            return new ExplorationCompassLootFunction(lootConditions, tagKey, dimensionKey, i, bl);
         }
 
         private static TagKey<Structure> getDestination(JsonObject jsonObject) {
