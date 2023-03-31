@@ -1,0 +1,15 @@
+{
+    "structures": [
+        {
+            "structure": "progression_revamp:charged_obsidian_cluster",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "type": "minecraft:random_spread",
+        "spread_type": "triangular",
+        "spacing": 8,
+        "separation": 4,
+        "salt": 335926643
+    }
+}
