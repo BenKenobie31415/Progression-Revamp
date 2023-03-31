@@ -31,7 +31,6 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.structure.Structure;
 
 public class ExplorationCompassLootFunction extends ConditionalLootFunction {
