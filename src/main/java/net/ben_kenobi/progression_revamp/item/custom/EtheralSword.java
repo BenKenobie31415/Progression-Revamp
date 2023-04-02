@@ -10,9 +10,8 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.nbt.NbtByte;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtFloat;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -22,9 +21,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EtheralSword extends SwordItem {
-    private static final String CHARGE_NBT_KEY = "Charge";
-    private static final float ENCHANT_CHARGE_NBT_VALUE = 0.5F;
-    private static final float CHARGE_NBT_VALUE = 1.0F;
+    public static final String CHARGE_KEY = "Charge";
+    public static final byte DISCHARGED_NBT_VALUE = 0;
+    public static final byte ENCHANT_CHARGED_NBT_VALUE = 1;
+    public static final byte CHARGED_NBT_VALUE = 2;
 
     public EtheralSword() {
         super(ModToolMaterials.ETHERAL, 4, -2.4f, new Settings().rarity(Rarity.RARE));
@@ -34,37 +34,33 @@ public class EtheralSword extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         super.postHit(stack, target, attacker);
 
-        if (target.isAlive()) return true;
+        if (target.isAlive()) return false;
 
-        if (stack.getNbt().get(CHARGE_NBT_KEY) != null
-            && target.getType().isIn(ModEntityTags.ENCHANT_DISCHARGE_ETHERAL_SWORD_ON_KILL)) {
-            if (stack.getNbt().getFloat(CHARGE_NBT_KEY) == ENCHANT_CHARGE_NBT_VALUE) {
-                playEnchantDischargeEffect(attacker);
-            }
-            if (stack.getNbt().getFloat(CHARGE_NBT_KEY) == CHARGE_NBT_VALUE) {
-                playDischargeEffect(attacker);
-            }
-            discharge(stack);
+        byte chargeValue = stack.getOrCreateNbt().getByte(CHARGE_KEY);
+
+        if (target.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL) && chargeValue == DISCHARGED_NBT_VALUE) {
+            playEnchantChargeEffect(attacker);
+            setChargeValue(stack, ENCHANT_CHARGED_NBT_VALUE);
             return true;
         }
-
-        if (target.getType().isIn(ModEntityTags.CHARGE_ETHERAL_SWORD_ON_KILL)) {
-            playChargeEffect(attacker);
-            charge(stack, attacker);
+        if (target.getType().isIn(ModEntityTags.DISCHARGE_ETHERAL_SWORD_ON_KILL) && chargeValue == CHARGED_NBT_VALUE) {
+            playDischargeEffect(attacker);
+            setChargeValue(stack, DISCHARGED_NBT_VALUE);
+            return true;
         }
-        if (target.getType().isIn(ModEntityTags.ENCHANT_CHARGE_ETHERAL_SWORD_ON_KILL)) {
-            playEnchantChargeEffect(attacker);
-            enchantCharge(stack, attacker);
+        if (target.getType().isIn(ModEntityTags.ENCHANT_DISCHARGE_ETHERAL_SWORD_ON_KILL) && chargeValue == ENCHANT_CHARGED_NBT_VALUE) {
+            playEnchantDischargeEffect(attacker);
+            setChargeValue(stack, DISCHARGED_NBT_VALUE);
+            return true;
         }
-
-        return true;
+        return false;
     }
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         super.postMine(stack, world, state, pos, miner);
         if (state.getBlock() == ModBlocks.CHARGED_OBSIDIAN) {
-            charge(stack, miner);
+            setChargeValue(stack, CHARGED_NBT_VALUE);
             playChargeEffect(miner);
         }
         return true;
@@ -72,29 +68,32 @@ public class EtheralSword extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        float charge = stack.getNbt().getFloat(CHARGE_NBT_KEY);
-        if (charge == 0.0F) {
+        byte charge = stack.getNbt().getByte(CHARGE_KEY);
+        if (charge == DISCHARGED_NBT_VALUE) {
             tooltip.add(Text.translatable("item.progression_revamp.etheral_sword.tooltip_uncharged").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
             return;
         }
-        if (charge == 0.5F) {
+        if (charge == ENCHANT_CHARGED_NBT_VALUE) {
             tooltip.add(Text.translatable("item.progression_revamp.etheral_sword.tooltip_enchant_charged").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
             return;
         }
-        if (charge == 1.0F) {
+        if (charge == CHARGED_NBT_VALUE) {
             tooltip.add(Text.translatable("item.progression_revamp.etheral_sword.tooltip_charged").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
             return;
         }
     }
 
-    private void charge(ItemStack itemStack, LivingEntity attacker) {
-        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
-        nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(CHARGE_NBT_VALUE));
+    @Override
+    public ItemStack getDefaultStack() {
+        ItemStack itemStack = new ItemStack(this);
+        setChargeValue(itemStack, CHARGED_NBT_VALUE);
+        return itemStack;
     }
 
-    private void enchantCharge(ItemStack itemStack, LivingEntity attacker) {
+    private void setChargeValue(ItemStack itemStack, byte value) {
         NbtCompound nbtCompound = itemStack.getOrCreateNbt();
-        nbtCompound.put(CHARGE_NBT_KEY, NbtFloat.of(ENCHANT_CHARGE_NBT_VALUE));
+        nbtCompound.remove(CHARGE_KEY);
+        nbtCompound.put(CHARGE_KEY, NbtByte.of(value));
     }
 
     private void playChargeEffect(LivingEntity attacker) {
@@ -105,11 +104,6 @@ public class EtheralSword extends SwordItem {
     private void playEnchantChargeEffect(LivingEntity attacker) {
         World world = attacker.getWorld();
         world.playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
-    }
-
-    private void discharge(ItemStack itemStack) {
-        NbtCompound nbtCompound = itemStack.getOrCreateNbt();
-        nbtCompound.remove(CHARGE_NBT_KEY);
     }
 
     private void playDischargeEffect(LivingEntity attacker) {
