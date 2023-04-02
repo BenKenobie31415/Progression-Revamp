@@ -69,56 +69,11 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "weight": 40,
             "name": "minecraft:enchanted_book",
             "functions": [
               {
                 "function": "minecraft:set_nbt",
                 "tag": "{StoredEnchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 30,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:2s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 20,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:3s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 10,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:4s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 10,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:5s}]}"
               }
             ]
           }

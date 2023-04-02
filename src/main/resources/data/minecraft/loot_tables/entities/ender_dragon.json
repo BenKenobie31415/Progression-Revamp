@@ -1,18 +1,13 @@
 {
-    "type": "minecraft:entity",
+    "type": "entity",
     "pools": [
       {
+        "bonus_rolls": 0.0,
         "rolls": 1,
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}]}"
-              }
-            ]
+            "name": "minecraft:elytra"
           }
       ],
       "conditions": [
@@ -26,7 +21,7 @@
                   "items": [
                     "progression_revamp:etheral_sword"
                   ],
-                  "nbt": "{Charge:1b}"
+                  "nbt": "{Charge:2b}"
                 }
               }
             }
@@ -34,6 +29,5 @@
         }
       ]
     }
-  ]
+    ]
 }
-  

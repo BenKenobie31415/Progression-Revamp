@@ -56,39 +56,6 @@
                 "tag": "{StoredEnchantments:[{id:\"minecraft:protection\",lvl:1s}]}"
               }
             ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 30,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:protection\",lvl:2s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 20,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:protection\",lvl:3s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 10,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:protection\",lvl:4s}]}"
-              }
-            ]
           }
       ],
       "conditions": [

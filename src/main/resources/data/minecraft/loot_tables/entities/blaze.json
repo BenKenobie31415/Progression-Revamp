@@ -40,7 +40,6 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "weight": 40,
             "name": "minecraft:enchanted_book",
             "functions": [
               {

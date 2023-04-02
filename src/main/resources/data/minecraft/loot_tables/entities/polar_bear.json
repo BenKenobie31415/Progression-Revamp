@@ -87,34 +87,11 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "weight": 40,
             "name": "minecraft:enchanted_book",
             "functions": [
               {
                 "function": "minecraft:set_nbt",
                 "tag": "{StoredEnchantments:[{id:\"minecraft:riptide\",lvl:1s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 30,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:riptide\",lvl:2s}]}"
-              }
-            ]
-          },
-          {
-            "type": "minecraft:item",
-            "weight": 20,
-            "name": "minecraft:enchanted_book",
-            "functions": [
-              {
-                "function": "minecraft:set_nbt",
-                "tag": "{StoredEnchantments:[{id:\"minecraft:riptide\",lvl:3s}]}"
               }
             ]
           }
