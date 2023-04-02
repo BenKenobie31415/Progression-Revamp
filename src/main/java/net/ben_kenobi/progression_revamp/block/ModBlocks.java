@@ -1,7 +1,6 @@
 package net.ben_kenobi.progression_revamp.block;
 
 import net.ben_kenobi.progression_revamp.ProgressionRevamp;
-import net.ben_kenobi.progression_revamp.block.custom.ChargeBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;

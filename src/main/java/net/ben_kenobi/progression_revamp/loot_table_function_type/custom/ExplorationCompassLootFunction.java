@@ -8,7 +8,6 @@ import com.google.gson.JsonObject;
 
 import net.ben_kenobi.progression_revamp.ProgressionRevamp;
 import net.ben_kenobi.progression_revamp.loot_table_function_type.ModLootFunctionTypes;
-import net.minecraft.client.render.DimensionEffects.Nether;
 import net.minecraft.item.CompassItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -32,7 +31,6 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.gen.structure.Structure;
 
 public class ExplorationCompassLootFunction extends ConditionalLootFunction {
