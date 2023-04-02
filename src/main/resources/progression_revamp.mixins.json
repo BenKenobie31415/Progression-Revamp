@@ -7,9 +7,12 @@
   ],
   "client": [
     "AnvilLevelCostLimiter",
-    "RepairCostOverwriter",
+    "RepairCostOverrider",
     "ElytraReplacer",
-    "ElytraBoostDisabler"
+    "ElytraBoostDisabler",
+    "EnchantmentLevelOverrider$Protection",
+    "EnchantmentLevelOverrider$Damage",
+    "EnchantmentLevelOverrider$Power"
   ],
   "injectors": {
     "defaultRequire": 1

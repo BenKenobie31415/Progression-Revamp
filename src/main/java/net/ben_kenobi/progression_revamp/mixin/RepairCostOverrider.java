@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import net.minecraft.screen.AnvilScreenHandler;
 
 @Mixin(AnvilScreenHandler.class)
-public class RepairCostOverwriter {
+public class RepairCostOverrider {
     @ModifyArg(method = "updateResult",
         at = @At( value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setRepairCost(I)V", ordinal = 0), index = 0)
     public int changeT(int t) {

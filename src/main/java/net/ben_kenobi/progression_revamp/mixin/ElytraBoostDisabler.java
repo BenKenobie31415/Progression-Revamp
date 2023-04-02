@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 @Mixin(FireworkRocketItem.class)
 public class ElytraBoostDisabler {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    public void changeB(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
+    public void cancel(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         cir.setReturnValue(TypedActionResult.pass(user.getStackInHand(hand)));
         cir.cancel();
     }
