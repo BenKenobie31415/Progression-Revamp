@@ -49,7 +49,7 @@
                     "items": [
                       "progression_revamp:etheral_sword"
                     ],
-                    "nbt": "{Charge:0.5f}"
+                    "nbt": "{Charge:1b}"
                   }
                 }
               }
