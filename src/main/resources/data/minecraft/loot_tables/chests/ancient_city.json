@@ -34,9 +34,8 @@
           "name": "minecraft:compass",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
+              "function": "minecraft:exploration_map",
+              "destination": "progression_revamp:ancient_city_exploration_compass_can_find"
             }
           ]
         },
@@ -257,18 +256,11 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
           "name": "minecraft:enchanted_book",
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:swift_sneak\"}]}",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.3
-                }
-              ]
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:swift_sneak\"}]}"
             }
           ]
         },

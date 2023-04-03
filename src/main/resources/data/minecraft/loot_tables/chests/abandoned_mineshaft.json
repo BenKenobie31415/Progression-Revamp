@@ -289,7 +289,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 14,
+          "weight": 35,
           "name": "minecraft:enchanted_book",
           "functions": [
             {
@@ -299,41 +299,8 @@
           ]
         },
         {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:enchanted_book",
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 2s, id: \"minecraft:efficiency\"}]}"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 8,
-          "name": "minecraft:enchanted_book",
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:fortune\"}]}"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:enchanted_book",
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:silk_touch\"}]}"
-            }
-          ]
-        },
-        {
           "type": "minecraft:empty",
-          "weight": 60
+          "weight": 20
         }
       ]
     }

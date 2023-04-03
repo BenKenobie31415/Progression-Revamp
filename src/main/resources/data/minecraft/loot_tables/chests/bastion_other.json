@@ -118,14 +118,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
-          "name": "minecraft:book",
+          "weight": 5,
+          "name": "minecraft:enchanted_book",
           "functions": [
             {
-              "function": "minecraft:enchant_randomly",
-              "enchantments": [
-                "minecraft:soul_speed"
-              ]
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:looting\"}]}"
             }
           ]
         }
