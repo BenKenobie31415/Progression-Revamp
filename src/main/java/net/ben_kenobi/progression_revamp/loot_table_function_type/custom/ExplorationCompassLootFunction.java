@@ -35,6 +35,7 @@ import net.minecraft.world.gen.structure.Structure;
 
 public class ExplorationCompassLootFunction extends ConditionalLootFunction {
     public static final TagKey<Structure> DEFAULT_DESTINATION = StructureTags.ON_TREASURE_MAPS;
+    public static final RegistryKey<World> DEFAULT_DIMENSION = World.OVERWORLD;
     final TagKey<Structure> destination;
     final RegistryKey<World> dimensionKey;
     final int searchRadius;
@@ -90,8 +91,7 @@ public class ExplorationCompassLootFunction extends ConditionalLootFunction {
         public ExplorationCompassLootFunction fromJson(JsonObject jsonObject, JsonDeserializationContext var2,
                 LootCondition[] lootConditions) {
             TagKey<Structure> tagKey = Serializer.getDestination(jsonObject);
-            String dimensionValue = JsonHelper.getString(jsonObject, "dimension", "overworld");
-            RegistryKey<World> dimensionKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dimensionValue));
+            RegistryKey<World> dimensionKey = Serializer.getDimension(jsonObject);
             int i = JsonHelper.getInt(jsonObject, "search_radius", 50);
             boolean bl = JsonHelper.getBoolean(jsonObject, "skip_existing_chunks", true);
             return new ExplorationCompassLootFunction(lootConditions, tagKey, dimensionKey, i, bl);
@@ -103,6 +103,14 @@ public class ExplorationCompassLootFunction extends ConditionalLootFunction {
                 return TagKey.of(RegistryKeys.STRUCTURE, new Identifier(string));
             }
             return DEFAULT_DESTINATION;
+        }
+
+        private static RegistryKey<World> getDimension(JsonObject jsonObject) {
+            if (jsonObject.has("dimension")) {
+                String string = JsonHelper.getString(jsonObject, "dimension");
+                return RegistryKey.of(RegistryKeys.WORLD, new Identifier(string));
+            }
+            return DEFAULT_DIMENSION;
         }
     }
 }
