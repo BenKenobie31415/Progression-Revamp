@@ -1,7 +1,6 @@
 package net.ben_kenobi.progression_revamp.item;
 
 import net.ben_kenobi.progression_revamp.ProgressionRevamp;
-import net.ben_kenobi.progression_revamp.item.custom.EtheralSword;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -12,12 +11,8 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item DIMANESIONAL_INGOT = registerItem("dimensional_ingot",
-            new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
-
-    public static final Item ETHERAL_SWORD = registerItem("etheral_sword", new EtheralSword(), ItemGroups.COMBAT);
-    public static final Item BROKEN_SWORD = registerItem("broken_sword", new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
-    public static final Item LAPIS_SHARD = registerItem("lapis_shard", new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
+    public static final Item ENCHANTING_CATALYST = registerItem("enchanting_catalyst", new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
+    public static final Item SOUL_CATALYST = registerItem("soul_catalyst", new Item(new Item.Settings()), ItemGroups.INGREDIENTS);
 
     private static Item registerItem(String name, Item item, ItemGroup group) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));

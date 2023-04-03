@@ -1,15 +1,6 @@
 {
-    "item.progression_revamp.dimensional_ingot": "Dimensional Ingot",
-    "item.progression_revamp.broken_sword": "Broken Sword",
-    "item.progression_revamp.etheral_sword": "Etheral Sword",
-    "item.progression_revamp.etheral_sword.tooltip_uncharged": "Uncharged",
-    "item.progression_revamp.etheral_sword.tooltip_enchant_charged": "Enchant Charged",
-    "item.progression_revamp.etheral_sword.tooltip_charged": "Charged",
-    "item.progression_revamp.lapis_shard": "Lapis Shard",
+    "item.progression_revamp.enchanting_catalyst": "Enchanting Catalyst",
+    "item.progression_revamp.soul_catalyst": "Soul Catalyst",
     "block.progression_revamp.charged_obsidian": "Charged Obsidian",
-    "item.minecraft.lapis_lazuli": "Lapis Catalyst",
-    "item.minecraft.compass.loded": "Loded Compass",
-    "block.minecraft.lapis_block": "Block of Lapis",
-    "block.minecraft.lapis_ore": "Lapis Ore",
-    "block.minecraft.deepslate_lapis_ore": "Deepslate Lapis Ore"
+    "item.minecraft.lapis_lazuli": "Lapis Shard"
 }

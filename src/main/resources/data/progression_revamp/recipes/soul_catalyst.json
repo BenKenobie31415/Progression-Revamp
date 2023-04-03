@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cec",
+    "ede",
+    "cec"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:dragon_breath"
+    },
+    "e": {
+      "item": "minecraft:echo_shard"
+    },
+    "c": {
+      "item": "progression_revamp:charged_obsidian"
+    }
+  },
+  "result": {
+    "item": "progression_revamp:soul_catalyst"
+  }
+}

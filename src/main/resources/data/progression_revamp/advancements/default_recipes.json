@@ -1059,9 +1059,7 @@
         "minecraft:lapis_lazuli_from_smelting_lapis_ore",
         "progression_revamp:tinted_glass",
         "progression_revamp:lodestone",
-        "progression_revamp:lapis_from_shard",
-        "progression_revamp:lapis_block_from_shard",
-        "progression_revamp:lapis_shard_from_block"
+        "progression_revamp:soul_catalyst"
       ]
     }
   }
