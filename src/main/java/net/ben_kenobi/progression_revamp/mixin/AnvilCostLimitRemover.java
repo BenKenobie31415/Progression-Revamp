@@ -1,12 +1,9 @@
 package net.ben_kenobi.progression_revamp.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-import net.ben_kenobi.progression_revamp.ProgressionRevamp;
 import net.minecraft.client.gui.screen.ingame.AnvilScreen;
 import net.minecraft.screen.AnvilScreenHandler;
 
