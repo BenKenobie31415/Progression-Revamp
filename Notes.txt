@@ -1,3 +1,5 @@
+Old:
+
 mineshaft:
     silk touch
     fortune
@@ -54,3 +56,14 @@ underwater ruin big:
 underwater ruin small:
 
 woodland mansion:
+
+
+New:
+mineshaft:
+    efficiency
+
+ancient city:
+    ice box:
+        frost walker
+    other:
+        swift sneak

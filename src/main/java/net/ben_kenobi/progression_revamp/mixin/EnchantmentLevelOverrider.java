@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.PowerEnchantment;
 import net.minecraft.enchantment.ProtectionEnchantment;
+import net.minecraft.enchantment.UnbreakingEnchantment;
 
 public abstract class EnchantmentLevelOverrider {
     @Mixin(ProtectionEnchantment.class)
@@ -33,6 +34,15 @@ public abstract class EnchantmentLevelOverrider {
         @Inject(method = "getMaxLevel", at = @At("HEAD"), cancellable = true)
         public void returnMaxLevel(CallbackInfoReturnable<Integer> cir) {
             cir.setReturnValue(4);
+            cir.cancel();
+        }
+    }
+
+    @Mixin(UnbreakingEnchantment.class)
+    public static abstract class Unbreaking {
+        @Inject(method = "getMaxLevel", at = @At("HEAD"), cancellable = true)
+        public void returnMaxLevel(CallbackInfoReturnable<Integer> cir) {
+            cir.setReturnValue(1);
             cir.cancel();
         }
     }

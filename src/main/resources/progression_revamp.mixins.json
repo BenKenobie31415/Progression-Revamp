@@ -6,13 +6,18 @@
   "mixins": [
   ],
   "client": [
-    "AnvilLevelCostLimiter",
-    "RepairCostOverrider",
+    "AnvilCostLimitRemover$LimitRemover",
+    "AnvilCostLimitRemover$TextRemover",
+    "RepairCostHandler",
     "ElytraBoostDisabler",
     "EnchantmentLevelOverrider$Protection",
     "EnchantmentLevelOverrider$Damage",
     "EnchantmentLevelOverrider$Power",
-    "EnchantingTableItemCostOverrider"
+    "EnchantmentLevelOverrider$Unbreaking",
+    "EnchantingTableItemCostOverrider",
+    "MendingDisabler",
+    "UnbreakingHandler$UnbreakableMaker",
+    "UnbreakingHandler$MiningToolSpeedReducer"
   ],
   "injectors": {
     "defaultRequire": 1
