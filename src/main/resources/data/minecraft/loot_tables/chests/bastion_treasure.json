@@ -2,12 +2,12 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 2,
+      "rolls": 3,
       "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 1,
           "name": "minecraft:netherite_ingot",
           "functions": [
             {
@@ -55,15 +55,26 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond",
+          "weight": 2,
+          "name": "minecraft:enchanted_golden_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "progression_revamp:enchanting_catalyst",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
-                "min": 2,
-                "max": 6
+                "min": 1,
+                "max": 3
               },
               "add": false
             }
@@ -72,12 +83,11 @@
         {
           "type": "minecraft:item",
           "weight": 2,
-          "name": "minecraft:enchanted_golden_apple",
+          "name": "minecraft:enchanted_book",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:looting\"}]}"
             }
           ]
         }
@@ -114,8 +124,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2,
-                "max": 5
+                "min": 4,
+                "max": 7
               },
               "add": false
             }
