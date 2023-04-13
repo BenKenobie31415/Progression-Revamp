@@ -1,69 +1,42 @@
-Old:
+treasure:
+    protection (abandoned mineshaft)
+    feather_falling (jungle temple)
+    respiration (shipwreck)
+    aqua_affinity (big underwater ruin)
+    depth_strider (small underwater ruin)
+    soul_speed (bastion)
+    swift_sneak (ancient city)
+    sharpness (dungeon)
+    fire_aspect (fortress)
+    looting (treasure bastion)
+    unbreaking (desert pyramid)
+    fortune (woodland mansion)
+    infinity (pillager oupost)
+    channeling (buried treasure)
+    mending (stronghold library)
+    vanishing_curse (stronghold crossing)
+    binding_curse (stronghold corridor)
 
-mineshaft:
-    silk touch
-    fortune
-    diamond equipment recipe
-
-ancient city ice:
-    diamond equipment
-
-ancient city:
-    swiftsneak
-    recovery compass
-
-bastion bridge:
-
-bastion stable:
-
-bastion other:
-    fire protection
-
-bastion treasure
-    unbreaking
-
-desert pyramid:
-
-end city:
-    anvil reipe
-
-igloo:
-
-jugle temple:
-
-fortress:
-
-pillager outpost:
-
-ruined portal:
-
-shipwreck map:
-
-shipwreck supply:
-
-shipwreck treasure:
-
-dungeon:
-
-stronghold corridor:
-
-stronghold crossing:
-
-stronghold library:
-
-underwater ruin big:
-
-underwater ruin small:
-
-woodland mansion:
-
-
-New:
-mineshaft:
-    efficiency
-
-ancient city:
-    ice box:
-        frost walker
-    other:
-        swift sneak
+non-treasure:
+    fire_protection             [1 15-30 ,2 25-50 ,3 50-infinity]
+    blast_protection            [1 15-30 ,2 25-50 ,3 50-infinity]
+    projectile_protection       [1 15-30 ,2 25-50 ,3 50-infinity]
+    thorns                      [1 1-20 ,2 15-50 ,3 50-infinity]
+    frost_walker                [1 1-15 ,2 15-30]
+    smite                       [1 1-20 ,2 15-30 ,3 25-50 ,4 50-infinity]
+    bane_of_arthropods          [1 1-20 ,2 15-30 ,3 25-50 ,4 50-infinity]
+    knockback                   [1 1-15 ,2 10-25 ,3 23-34]
+    sweeping                    [1 29-44 ,2 38-50 ,3 50-infinity]
+    efficiency                  [1 1-23 ,2 19-37 ,3 34-50 ,4 50-infinity ,5 infinity-infinity]
+    silk_touch                  [1 38-infinity]
+    power                       [1 1-22 ,2 17-35 ,3 32-infinity ,4 infinity-infinity]
+    punch                       [1 23-37 ,2 32-45]
+    flame                       [1 44-infinity]
+    luck_of_the_sea             [1 34-50 ,2 44-infinity ,3 infinity-infinity]
+    lure                        [1 12-23 ,2 20-39 ,3 34-infinity]
+    loyalty                     [1 29-45 ,2 38-infinity ,3 infinity-infinity]
+    impaling                    [1 13-25 ,2 19-33 ,3 27-45 ,4 43-infinity ,5 infinity-infinity]
+    riptide                     [1 35-47 ,2 43-infinity ,3 infinity-infinity]
+    multishot                   [1 34-infinity]
+    quick_charge                [1 23-34 ,2 29-45 ,3 40-infinity]
+    piercing                    [1 24-33 ,2 28-42 ,3 38-infinity ,4 infinity-infinity]
