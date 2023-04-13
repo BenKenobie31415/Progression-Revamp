@@ -39,10 +39,10 @@ public abstract class UnbreakingHandler {
 
         @Inject(method = "isSuitableFor", at = @At("HEAD"), cancellable = true)
         private void inject(CallbackInfoReturnable<Boolean> cir) {
-            cir.setReturnValue(true);
-            if (getMaxDamage() - getDamage() == -1)
+            if (getMaxDamage() - getDamage() == -1) {
                 cir.setReturnValue(false);
-            cir.cancel();
+                cir.cancel();
+            }
         }
     }
 }
