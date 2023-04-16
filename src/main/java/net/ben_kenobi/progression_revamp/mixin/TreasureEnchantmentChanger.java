@@ -46,11 +46,11 @@ public class TreasureEnchantmentChanger {
             treasureEnchantments.add(Enchantments.VANISHING_CURSE);
             treasureEnchantments.add(Enchantments.BINDING_CURSE);
 
-            /*if (treasureEnchantments.contains((Object)this)) {
+            if (treasureEnchantments.contains((Object)this)) {
                 cir.setReturnValue(true);
                 cir.cancel();
                 return;
-            }*/
+            }
             cir.setReturnValue(false);
             cir.cancel();
         }

@@ -41,7 +41,8 @@
     "UnbreakingHandler$MiningToolSpeedReducer",
     "ThornsHandler",
     "TreasureEnchantmentChanger$FrostWalker",
-    "TreasureEnchantmentChanger$Others"
+    "TreasureEnchantmentChanger$Others",
+    "EnchantingTableChanger"
   ],
   "injectors": {
     "defaultRequire": 1

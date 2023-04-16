@@ -49,8 +49,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(30);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(50);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -76,8 +88,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(20);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(50);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -99,8 +123,16 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(30);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(15);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(30);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -130,8 +162,24 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(20);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(30);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(50);
+                    cir.cancel();
+                    break;
+                case 4:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -139,14 +187,38 @@ public abstract class EnchantmentPowerRequirementChanger {
     public static abstract class Knockback {
         @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(23);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(1);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(10);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(23);
+                    cir.cancel();
+                    break;
+            }
         }
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(34);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(15);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(25);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(34);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -172,8 +244,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(44);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(50);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -207,8 +291,28 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(23);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(37);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(50);
+                    cir.cancel();
+                    break;
+                case 4:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 5:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -261,8 +365,24 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(22);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(35);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 4:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -284,8 +404,16 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(45);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(37);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(45);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -303,8 +431,12 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -330,8 +462,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(50);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -357,8 +501,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(23);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(39);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -384,8 +540,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(45);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -419,8 +587,28 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(25);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(33);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(45);
+                    cir.cancel();
+                    break;
+                case 4:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 5:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -446,8 +634,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(47);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -496,7 +696,20 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(34);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(45);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 
@@ -526,8 +739,24 @@ public abstract class EnchantmentPowerRequirementChanger {
 
         @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
-            cir.cancel();
+            switch (level) {
+                case 1:
+                    cir.setReturnValue(33);
+                    cir.cancel();
+                    break;
+                case 2:
+                    cir.setReturnValue(42);
+                    cir.cancel();
+                    break;
+                case 3:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+                case 4:
+                    cir.setReturnValue(Integer.MAX_VALUE);
+                    cir.cancel();
+                    break;
+            }
         }
     }
 }
