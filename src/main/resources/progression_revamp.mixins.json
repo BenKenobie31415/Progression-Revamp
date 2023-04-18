@@ -42,7 +42,9 @@
     "ThornsHandler",
     "TreasureEnchantmentChanger$FrostWalker",
     "TreasureEnchantmentChanger$Others",
-    "EnchantingTableChanger"
+    "EnchantingTableChanger",
+    "TradeOfferModifier$BookEnchantmentsAvailable",
+    "TradeOfferModifier$BookEnchantmentLevels"
   ],
   "injectors": {
     "defaultRequire": 1
