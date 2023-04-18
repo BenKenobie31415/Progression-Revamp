@@ -97,7 +97,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 5,
           "name": "minecraft:knowledge_book",
           "functions": [
             {
@@ -108,12 +108,12 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 5,
           "name": "minecraft:enchanted_book",
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:mending\"}]}"
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:fortune\"}]}"
             }
           ]
         },
@@ -165,4 +165,3 @@
     }
   ]
 }
-

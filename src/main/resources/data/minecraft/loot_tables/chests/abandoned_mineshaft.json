@@ -108,15 +108,15 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "progression_revamp:lapis_shard",
+          "weight": 10,
+          "name": "minecraft:lapis_lazuli",
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2,
-                "max": 5
+                "min": 3,
+                "max": 6
               },
               "add": false
             }
@@ -294,13 +294,13 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:efficiency\"}]}"
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:protection\"}]}"
             }
           ]
         },
         {
           "type": "minecraft:empty",
-          "weight": 20
+          "weight": 40
         }
       ]
     }

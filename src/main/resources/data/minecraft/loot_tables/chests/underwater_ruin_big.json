@@ -73,13 +73,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:book",
-          "functions":[
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:leather_chestplate"
         },
         {
@@ -89,9 +82,7 @@
         {
           "type": "minecraft:item",
           "weight": 5,
-          "name": "minecraft:fishing_rod",
-          "functions":[
-          ]
+          "name": "minecraft:fishing_rod"
         },
         {
           "type": "minecraft:item",
@@ -119,6 +110,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 5,
           "name": "minecraft:knowledge_book",
           "functions": [
             {
@@ -126,12 +118,21 @@
               "tag": "{display:{Name:'{\"text\":\"Knowledge Book\",\"color\":\"white\",\"italic\":false}',Lore:['{\"text\":\"Trident\",\"color\":\"gray\",\"italic\":true}']},CustomModelData:1,Recipes:[\"progression_revamp:trident\"]}"
             }
           ]
-        }
-      ],
-      "conditions": [
+        },
         {
-          "condition": "minecraft:random_chance",
-          "chance": 0.1
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:aqua_affinity\"}]}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 10
         }
       ]
     }

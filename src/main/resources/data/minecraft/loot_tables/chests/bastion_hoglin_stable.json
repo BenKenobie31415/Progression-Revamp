@@ -99,12 +99,17 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:enchanted_book",
+          "weight": 20,
+          "name": "minecraft:crying_obsidian",
           "functions": [
             {
-              "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:fire_protection\"}]}"
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 6
+              },
+              "add": false
             }
           ]
         }
@@ -129,21 +134,6 @@
             },
             {
               "function": "minecraft:enchant_randomly"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:crying_obsidian",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 5
-              },
-              "add": false
             }
           ]
         },

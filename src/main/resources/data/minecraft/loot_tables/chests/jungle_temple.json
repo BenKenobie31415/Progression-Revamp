@@ -148,22 +148,8 @@
           "name": "minecraft:enchanted_book",
           "functions": [
             {
-              "function": "minecraft:enchant_randomly",
-              "enchantments": [
-                "minecraft:multishot"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:compass",
-          "functions": [
-            {
-              "function": "progression_revamp:exploration_compass",
-              "destination": "progression_revamp:jungle_temple_exploration_compass_can_find",
-              "skip_existing_chunks": true,
-              "dimension": "overworld"
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:feather_falling\"}]}"
             }
           ]
         }

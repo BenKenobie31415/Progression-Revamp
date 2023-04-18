@@ -52,9 +52,7 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "minecraft:book",
-          "functions": [
-            ]
+          "name": "minecraft:book"
         }
       ]
     },
@@ -63,6 +61,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 5,
           "name": "minecraft:knowledge_book",
           "functions": [
             {
@@ -70,12 +69,21 @@
               "tag": "{display:{Name:'{\"text\":\"Knowledge Book\",\"color\":\"white\",\"italic\":false}',Lore:['{\"text\":\"End Crystal\",\"color\":\"gray\",\"italic\":true}']},CustomModelData:2,Recipes:[\"minecraft:end_crystal\"]}"
             }
           ]
-        }
-      ],
-      "conditions": [
+        },
         {
-          "condition": "minecraft:random_chance",
-          "chance": 0.2
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:enchanted_book",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:mending\"}]}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 10
         }
       ]
     }

@@ -17,7 +17,7 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:respiration\"}]}"
+              "tag": "{StoredEnchantments:[{lvl: 1s, id: \"minecraft:channeling\"}]}"
             }
           ]
         },
