@@ -3,8 +3,8 @@
   "id": "progression_revamp",
   "version": "${version}",
 
-  "name": "Tutorial Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Progression Revamp",
+  "description": "Changes some Vanilla-Behaviour to get a better progresseion throughout a playthrough.",
   "authors": [
     "BenKenobi"
   ],
