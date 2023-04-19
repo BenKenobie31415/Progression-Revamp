@@ -2,8 +2,8 @@ treasure:
     protection (abandoned mineshaft)
     feather_falling (jungle temple)
     respiration (shipwreck)
-    aqua_affinity (big underwater ruin) ---
-    depth_strider (small underwater ruin) ---
+    aqua_affinity (big underwater ruin)
+    depth_strider (small underwater ruin)
     soul_speed (bastion)
     swift_sneak (ancient city)
     sharpness (dungeon)

@@ -56,6 +56,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 35,
           "name": "minecraft:knowledge_book",
           "functions": [
             {
@@ -63,12 +64,10 @@
               "tag": "{display:{Name:'{\"text\":\"Knowledge Book\",\"color\":\"white\",\"italic\":false}',Lore:['{\"text\":\"Iron Helmet\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Chestplate\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Leggings\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Boots\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Sword\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Pickaxe\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Axe\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Shovel\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Iron Hoe\",\"color\":\"gray\",\"italic\":true}','{\"text\":\"Block of Iron\",\"color\":\"gray\",\"italic\":true}']},CustomModelData:3,Recipes:[\"minecraft:iron_helmet\",\"minecraft:iron_chestplate\",\"minecraft:iron_leggings\",\"minecraft:iron_boots\",\"minecraft:iron_sword\",\"minecraft:iron_pickaxe\",\"minecraft:iron_axe\",\"minecraft:iron_shovel\",\"minecraft:iron_hoe\",\"minecraft:iron_block\"]}"
             }
           ]
-        }
-      ],
-      "conditions": [
+        },
         {
-          "condition": "minecraft:random_chance",
-          "chance": 0.35
+          "type": "minecraft:empty",
+          "weight": 65
         }
       ]
     }
