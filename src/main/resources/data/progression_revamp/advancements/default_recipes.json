@@ -1057,9 +1057,14 @@
         "minecraft:lapis_lazuli_from_blasting_lapis_ore",
         "minecraft:lapis_lazuli_from_smelting_deepslate_lapis_ore",
         "minecraft:lapis_lazuli_from_smelting_lapis_ore",
-        "progression_revamp:tinted_glass",
-        "progression_revamp:lodestone",
-        "progression_revamp:soul_catalyst"
+        "minecraft:lapis_block",
+        "minecraft:lapis_lazuli",
+        "minecraft:tinted_glass",
+        "minecraft:enchanting_table",
+        "minecraft:lodestone",
+        "progression_revamp:soul_catalyst",
+        "progression_revamp:enchanting_catalyst",
+        "progression_revamp:saddle"
       ]
     }
   }

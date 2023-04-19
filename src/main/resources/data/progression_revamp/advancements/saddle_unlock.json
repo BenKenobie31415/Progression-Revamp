@@ -1,5 +1,4 @@
 {
-    "parent": "minecraft:husbandry/tame_an_animal",
     "criteria": {
       "minecraft:horse": {
         "trigger": "minecraft:tame_animal",
