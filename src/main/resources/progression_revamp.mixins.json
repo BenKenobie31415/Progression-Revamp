@@ -44,7 +44,8 @@
     "TreasureEnchantmentChanger$Others",
     "EnchantingTableChanger",
     "TradeOfferModifier$BookEnchantmentsAvailable",
-    "TradeOfferModifier$BookEnchantmentLevels"
+    "TradeOfferModifier$BookEnchantmentLevels",
+    "ElytraReplacer"
   ],
   "injectors": {
     "defaultRequire": 1
