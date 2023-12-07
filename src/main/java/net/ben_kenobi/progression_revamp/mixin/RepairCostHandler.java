@@ -19,8 +19,6 @@ import net.minecraft.nbt.NbtList;
 @Mixin(ItemStack.class)
 public abstract class RepairCostHandler {
     @Shadow
-    public abstract NbtCompound getOrCreateNbt();
-    @Shadow
     public abstract NbtList getEnchantments();
     @Shadow
     public abstract boolean hasNbt();

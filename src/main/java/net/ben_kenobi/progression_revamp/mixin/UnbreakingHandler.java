@@ -13,8 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import com.google.common.collect.Multimap;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -30,7 +28,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.random.Random;
@@ -56,9 +53,6 @@ public abstract class UnbreakingHandler {
     public static abstract class ArmorReducer {
         @Shadow
         public abstract Iterable<ItemStack> getArmorItems();
-
-        @Shadow
-        public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
         @Redirect(method = "getArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D"))
         private double reduceArmorIfBroken(LivingEntity livingEntity, EntityAttribute attribute) {
@@ -97,6 +91,9 @@ public abstract class UnbreakingHandler {
 
             if (mainHandStack.getMaxDamage() - mainHandStack.getDamage() < 0) {
                 EntityAttributeInstance instance = playerEntity.getAttributeInstance(attribute);
+                if (instance == null) {
+                    return 0.0d;
+                }
                 Set<EntityAttributeModifier> modifiers = instance.getModifiers();
                 for (EntityAttributeModifier modifier : modifiers) {
                     String modifierName = modifier.getName();
@@ -127,10 +124,6 @@ public abstract class UnbreakingHandler {
         public abstract boolean isDamageable();
         @Shadow
         public abstract Item getItem();
-        @Shadow
-        public NbtCompound nbt;
-        @Shadow
-        public abstract Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot);
 
         @Inject(method = "isSuitableFor", at = @At("HEAD"), cancellable = true)
         private void inject(CallbackInfoReturnable<Boolean> cir) {
