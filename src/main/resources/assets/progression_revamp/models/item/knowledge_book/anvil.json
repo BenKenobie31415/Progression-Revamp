@@ -1,6 +1,6 @@
 {
-	"parent": "item/generated",
+	"parent": "progression_revamp/models/progression_revamp/models/item/broken_tools/generated",
 	"textures": {
-		"layer0": "progression_revamp:item/knowledge_book/anvil"
+		"layer0": "progression_revamp:progression_revamp/models/item/broken_tools/knowledge_book/anvil"
 	}
 }

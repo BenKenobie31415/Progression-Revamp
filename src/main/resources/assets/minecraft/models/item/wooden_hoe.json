@@ -1,0 +1,15 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "item/wooden_hoe"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "damaged": 1,
+                "damage": 1.0
+            },
+            "model": "item/broken_tools/wooden_hoe_broken"
+        }
+    ]
+}

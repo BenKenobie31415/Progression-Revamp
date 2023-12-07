@@ -1,0 +1,15 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "item/golden_pickaxe"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "damaged": 1,
+                "damage": 1.0
+            },
+            "model": "item/broken_tools/golden_pickaxe_broken"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures" : {
+        "layer0": "item/broken_tools/golden_sword_broken"
+    }
+}

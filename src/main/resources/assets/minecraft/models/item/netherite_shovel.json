@@ -1,0 +1,15 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "item/netherite_shovel"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "damaged": 1,
+                "damage": 1.0
+            },
+            "model": "item/broken_tools/netherite_shovel_broken"
+        }
+    ]
+}
