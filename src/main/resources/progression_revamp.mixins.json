@@ -39,6 +39,8 @@
     "MendingDisabler",
     "UnbreakingHandler$UnbreakableMaker",
     "UnbreakingHandler$MiningToolSpeedReducer",
+    "UnbreakingHandler$AttackDamageReducer",
+    "UnbreakingHandler$ArmorReducer",
     "ThornsHandler",
     "TreasureEnchantmentChanger$FrostWalker",
     "TreasureEnchantmentChanger$Others",
