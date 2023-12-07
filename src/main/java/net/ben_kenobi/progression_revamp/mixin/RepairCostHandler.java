@@ -35,7 +35,7 @@ public abstract class RepairCostHandler {
         }
         cir.setReturnValue(valueFromNbt);
         if (hasEnchantment(Enchantments.MENDING)) {
-            cir.setReturnValue(Math.min(valueFromNbt, 24));
+            cir.setReturnValue(Math.min(valueFromNbt, 20));
         }
         cir.cancel();
     }
@@ -44,7 +44,6 @@ public abstract class RepairCostHandler {
         NbtList enchantmentsNbt = getEnchantments();
         Map<Enchantment, Integer> map = EnchantmentHelper.fromNbt(enchantmentsNbt);
         Integer value = map.get(enchantment);
-        if (value == null) return false;
-        return true;
+        return value != null;
     }
 }
