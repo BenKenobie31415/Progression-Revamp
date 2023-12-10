@@ -22,6 +22,6 @@ public class ProgressionRevamp implements ModInitializer {
         ModBlocks.registerModBlocks();
         ModLootFunctionTypes.registerLootFunctions();
 
-        ServerLifecycleEvents.START_DATA_PACK_RELOAD.register(new GameRuleHandler());
+        ServerLifecycleEvents.SERVER_STARTED.register(new GameRuleHandler());
     }
 }
