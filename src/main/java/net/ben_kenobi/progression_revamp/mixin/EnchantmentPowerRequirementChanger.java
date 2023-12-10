@@ -1,532 +1,328 @@
 package net.ben_kenobi.progression_revamp.mixin;
 
+import net.ben_kenobi.progression_revamp.core.PowerRequirementHelper;
+import net.minecraft.enchantment.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import net.minecraft.enchantment.DamageEnchantment;
-import net.minecraft.enchantment.EfficiencyEnchantment;
-import net.minecraft.enchantment.FlameEnchantment;
-import net.minecraft.enchantment.FrostWalkerEnchantment;
-import net.minecraft.enchantment.ImpalingEnchantment;
-import net.minecraft.enchantment.KnockbackEnchantment;
-import net.minecraft.enchantment.LoyaltyEnchantment;
-import net.minecraft.enchantment.LuckEnchantment;
-import net.minecraft.enchantment.LureEnchantment;
-import net.minecraft.enchantment.MultishotEnchantment;
-import net.minecraft.enchantment.PiercingEnchantment;
-import net.minecraft.enchantment.PowerEnchantment;
-import net.minecraft.enchantment.ProtectionEnchantment;
-import net.minecraft.enchantment.PunchEnchantment;
-import net.minecraft.enchantment.QuickChargeEnchantment;
-import net.minecraft.enchantment.RiptideEnchantment;
-import net.minecraft.enchantment.SilkTouchEnchantment;
-import net.minecraft.enchantment.SweepingEnchantment;
-import net.minecraft.enchantment.ThornsEnchantment;
-
+/**
+ * Changes the range of levels in which an enchantment can be obtained in the enchanting table.
+ */
 public abstract class EnchantmentPowerRequirementChanger {
+
     @Mixin(ProtectionEnchantment.class)
     public static abstract class Protection {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(1);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(25);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(50);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.PROTECTION, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.PROTECTION, level));
             cir.cancel();
         }
     }
 
     @Mixin(ThornsEnchantment.class)
     public static abstract class Thorns {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(1);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(15);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(50);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.THORNS, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.THORNS, level));
             cir.cancel();
         }
     }
 
     @Mixin(FrostWalkerEnchantment.class)
     public static abstract class FrostWalker {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(1);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(15);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(10);
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(30);
+            cir.setReturnValue(15);
             cir.cancel();
         }
     }
 
     @Mixin(DamageEnchantment.class)
     public static abstract class Damage {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(1);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(15);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(25);
-                    cir.cancel();
-                    break;
-                case 4:
-                    cir.setReturnValue(50);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DAMAGE, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DAMAGE, level));
             cir.cancel();
         }
     }
 
     @Mixin(KnockbackEnchantment.class)
     public static abstract class Knockback {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(23);
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.KNOCKBACK, level));
             cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(34);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.KNOCKBACK, level));
             cir.cancel();
         }
     }
 
     @Mixin(SweepingEnchantment.class)
     public static abstract class Sweeping {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(29);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(38);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(50);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.SWEEPING, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.SWEEPING, level));
             cir.cancel();
         }
     }
 
     @Mixin(EfficiencyEnchantment.class)
     public static abstract class Efficiency {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(1);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(19);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(34);
-                    cir.cancel();
-                    break;
-                case 4:
-                    cir.setReturnValue(50);
-                    cir.cancel();
-                    break;
-                case 5:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DAMAGE, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DAMAGE, level));
             cir.cancel();
         }
     }
 
     @Mixin(SilkTouchEnchantment.class)
     public static abstract class SilkTouch {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(38);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.INFINITY, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.INFINITY, level));
+            cir.cancel();
         }
     }
 
     @Mixin(PowerEnchantment.class)
     public static abstract class Power {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(1);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(17);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(32);
-                    cir.cancel();
-                    break;
-                case 4:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DAMAGE, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DAMAGE, level));
             cir.cancel();
         }
     }
 
     @Mixin(PunchEnchantment.class)
     public static abstract class Punch {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(23);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(32);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.KNOCKBACK, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(45);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.KNOCKBACK, level));
             cir.cancel();
         }
     }
 
     @Mixin(FlameEnchantment.class)
     public static abstract class Flame {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(44);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.FIRE_ASPECT, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.FIRE_ASPECT, level));
             cir.cancel();
         }
     }
 
     @Mixin(LuckEnchantment.class)
     public static abstract class Luck {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(34);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(44);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.INFINITY, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.INFINITY, level));
             cir.cancel();
         }
     }
 
     @Mixin(LureEnchantment.class)
     public static abstract class Lure {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(12);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(20);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(34);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.SWEEPING, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.SWEEPING, level));
             cir.cancel();
         }
     }
 
     @Mixin(LoyaltyEnchantment.class)
     public static abstract class Loyalty {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(29);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(38);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DEPTH_STRIDER, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DEPTH_STRIDER, level));
             cir.cancel();
         }
     }
 
     @Mixin(ImpalingEnchantment.class)
     public static abstract class Impaling {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(13);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(19);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(27);
-                    cir.cancel();
-                    break;
-                case 4:
-                    cir.setReturnValue(43);
-                    cir.cancel();
-                    break;
-                case 5:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DAMAGE, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DAMAGE, level));
             cir.cancel();
         }
     }
 
     @Mixin(RiptideEnchantment.class)
     public static abstract class Riptide {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(35);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(43);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.INFINITY, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.INFINITY, level));
             cir.cancel();
         }
     }
 
     @Mixin(MultishotEnchantment.class)
     public static abstract class Multishot {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(34);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(1);
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(8);
+            cir.cancel();
         }
     }
 
     @Mixin(QuickChargeEnchantment.class)
     public static abstract class QuickCharge {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(23);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(29);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(40);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.THORNS, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.THORNS, level));
+            cir.cancel();
         }
     }
 
     @Mixin(PiercingEnchantment.class)
     public static abstract class Piercing {
-        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
         public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-            switch (level) {
-                case 1:
-                    cir.setReturnValue(24);
-                    cir.cancel();
-                    break;
-                case 2:
-                    cir.setReturnValue(28);
-                    cir.cancel();
-                    break;
-                case 3:
-                    cir.setReturnValue(38);
-                    cir.cancel();
-                    break;
-                case 4:
-                    cir.setReturnValue(Integer.MAX_VALUE);
-                    cir.cancel();
-                    break;
-            }
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DAMAGE, level));
+            cir.cancel();
         }
 
-        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
         public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-            cir.setReturnValue(Integer.MAX_VALUE);
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DAMAGE, level));
+            cir.cancel();
+        }
+    }
+
+    @Mixin(DepthStriderEnchantment.class)
+    public static abstract class DepthStrider {
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
+        public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.DEPTH_STRIDER, level));
+            cir.cancel();
+        }
+
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
+        public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.DEPTH_STRIDER, level));
+            cir.cancel();
+        }
+    }
+
+    @Mixin(FireAspectEnchantment.class)
+    public static abstract class FireAspect {
+        @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
+        public void returnMinPower(int level, CallbackInfoReturnable<Integer> cir) {
+            cir.setReturnValue(PowerRequirementHelper.getMinPower(PowerRequirementHelper.Patterns.FIRE_ASPECT, level));
+            cir.cancel();
+        }
+
+        @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
+        public void returnMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
+            cir.setReturnValue(PowerRequirementHelper.getMaxPower(PowerRequirementHelper.Patterns.FIRE_ASPECT, level));
             cir.cancel();
         }
     }

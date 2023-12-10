@@ -12,21 +12,21 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.FrostWalkerEnchantment;
 
-public class TreasureEnchantmentChanger {
-    @Mixin(FrostWalkerEnchantment.class)
+public abstract class TreasureEnchantmentChanger {
+    //@Mixin(FrostWalkerEnchantment.class)
     public static abstract class FrostWalker {
-        @Inject(method = "isTreasure", at = @At("HEAD"), cancellable = true)
+        //@Inject(method = "isTreasure", at = @At("HEAD"), cancellable = true)
         public void inject(CallbackInfoReturnable<Boolean> cir) {
             cir.setReturnValue(false);
             cir.cancel();
         }
     }
 
-    @Mixin(Enchantment.class)
+    //@Mixin(Enchantment.class)
     public static abstract class Others {
         private List<Enchantment> treasureEnchantments = new ArrayList<>();
 
-        @Inject(method = "isTreasure", at = @At("HEAD"), cancellable = true)
+        //@Inject(method = "isTreasure", at = @At("HEAD"), cancellable = true)
         public void inject(CallbackInfoReturnable<Boolean> cir) {
             treasureEnchantments.add(Enchantments.PROTECTION);
             treasureEnchantments.add(Enchantments.FEATHER_FALLING);

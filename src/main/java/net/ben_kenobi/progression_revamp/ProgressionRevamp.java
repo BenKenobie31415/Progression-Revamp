@@ -1,5 +1,6 @@
 package net.ben_kenobi.progression_revamp;
 
+import net.ben_kenobi.progression_revamp.core.PowerRequirementHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +17,7 @@ public class ProgressionRevamp implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        PowerRequirementHelper.init_data();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModLootFunctionTypes.registerLootFunctions();

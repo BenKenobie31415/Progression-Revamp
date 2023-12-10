@@ -12,7 +12,7 @@ import net.minecraft.screen.EnchantmentScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
 @Mixin(EnchantmentScreenHandler.class)
-public class EnchantingTableItemCostOverrider {
+public abstract class EnchantingTableItemCostChanger {
 
     @Shadow
     private Inventory inventory;

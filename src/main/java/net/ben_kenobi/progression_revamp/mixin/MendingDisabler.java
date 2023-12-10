@@ -10,7 +10,7 @@ import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 
 @Mixin(ExperienceOrbEntity.class)
-public class MendingDisabler {
+public abstract class MendingDisabler {
     @Inject(method = "repairPlayerGears", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
     public void cancel(PlayerEntity player, int amount, CallbackInfoReturnable<Integer> cir) {
         cir.setReturnValue(amount);
