@@ -1,6 +1,6 @@
 {
-	"parent": "progression_revamp/models/progression_revamp/models/item/broken_tools/generated",
+	"parent": "item/generated",
 	"textures": {
-		"layer0": "progression_revamp:progression_revamp/models/item/broken_tools/knowledge_book/diamond_gear"
+		"layer0": "progression_revamp:item/knowledge_book/diamond_gear"
 	}
 }
