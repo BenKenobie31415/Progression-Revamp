@@ -8,13 +8,26 @@
   "client": [
     "AnvilCostLimitRemover$LimitRemover",
     "AnvilCostLimitRemover$TextRemover",
-    "RepairCostHandler",
-    "ElytraBoostDisabler",
-    "EnchantmentLevelOverrider$Protection",
-    "EnchantmentLevelOverrider$Damage",
-    "EnchantmentLevelOverrider$Power",
-    "EnchantmentLevelOverrider$Unbreaking",
-    "EnchantmentLevelOverrider$Knockback",
+
+    "EnchantingTableChanger",
+    "EnchantingTableItemCostChanger",
+
+    "EnchantmentIncompatChanger$Respiration",
+    "EnchantmentIncompatChanger$Protection",
+    "EnchantmentIncompatChanger$Infinity",
+    "EnchantmentIncompatChanger$DepthStrider",
+
+    "EnchantmentLevelChanger$Protection",
+    "EnchantmentLevelChanger$Damage",
+    "EnchantmentLevelChanger$Power",
+    "EnchantmentLevelChanger$Unbreaking",
+    "EnchantmentLevelChanger$Knockback",
+    "EnchantmentLevelChanger$Respiration",
+    "EnchantmentLevelChanger$Efficiency",
+    "EnchantmentLevelChanger$Luck",
+    "EnchantmentLevelChanger$Impaling",
+    "EnchantmentLevelChanger$Riptide",
+
     "EnchantmentPowerRequirementChanger$Protection",
     "EnchantmentPowerRequirementChanger$Thorns",
     "EnchantmentPowerRequirementChanger$FrostWalker",
@@ -34,20 +47,17 @@
     "EnchantmentPowerRequirementChanger$Multishot",
     "EnchantmentPowerRequirementChanger$QuickCharge",
     "EnchantmentPowerRequirementChanger$Piercing",
-    "EnchantmentTableMaxBookshelfCountChanger",
-    "EnchantingTableItemCostOverrider",
-    "MendingDisabler",
+    "EnchantmentPowerRequirementChanger$DepthStrider",
+    "EnchantmentPowerRequirementChanger$FireAspect",
+
     "UnbreakingHandler$UnbreakableMaker",
-    "UnbreakingHandler$MiningToolSpeedReducer",
-    "UnbreakingHandler$AttackDamageReducer",
     "UnbreakingHandler$ArmorReducer",
-    "ThornsHandler",
-    "TreasureEnchantmentChanger$FrostWalker",
-    "TreasureEnchantmentChanger$Others",
-    "EnchantingTableChanger",
-    "TradeOfferModifier$BookEnchantmentsAvailable",
-    "TradeOfferModifier$BookEnchantmentLevels",
-    "ElytraReplacer"
+    "UnbreakingHandler$AttackDamageReducer",
+    "UnbreakingHandler$ToolFunctionalityDisabler",
+
+    "MendingDisabler",
+    "RepairCostHandler",
+    "ThornsHandler"
   ],
   "injectors": {
     "defaultRequire": 1
