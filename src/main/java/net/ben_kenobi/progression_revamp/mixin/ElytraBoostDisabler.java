@@ -13,6 +13,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
+/**
+ * Disables elytra boosts with firework rockets.
+ */
 @Mixin(FireworkRocketItem.class)
 public abstract class ElytraBoostDisabler {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)

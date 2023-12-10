@@ -13,6 +13,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+/**
+ * Removes all but the first enchantments from the list of enchantments obtained from the enchanting table.
+ */
 @Mixin(EnchantmentHelper.class)
 public abstract class EnchantingTableChanger {
     @Inject(method = "generateEnchantments", at = @At(value = "TAIL"), cancellable = true)

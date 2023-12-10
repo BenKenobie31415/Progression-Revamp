@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 
+/**
+ * Disables mending items from consuming experience.
+ */
 @Mixin(ExperienceOrbEntity.class)
 public abstract class MendingDisabler {
     @Inject(method = "repairPlayerGears", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)

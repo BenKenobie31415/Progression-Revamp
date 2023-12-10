@@ -6,6 +6,9 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 import net.minecraft.enchantment.ThornsEnchantment;
 
+/**
+ * Disables the increased durability reduction from the Thorns enchantment.
+ */
 @Mixin(ThornsEnchantment.class)
 public abstract class ThornsHandler {
     @ModifyConstant(method = "onUserDamaged", constant = @Constant(intValue = 2))

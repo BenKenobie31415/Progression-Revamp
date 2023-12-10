@@ -6,11 +6,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.enchantment.DamageEnchantment;
-import net.minecraft.enchantment.KnockbackEnchantment;
-import net.minecraft.enchantment.PowerEnchantment;
-import net.minecraft.enchantment.ProtectionEnchantment;
-import net.minecraft.enchantment.UnbreakingEnchantment;
+/**
+ * Changes the maximum level of enchantments.
+ */
+public abstract class EnchantmentLevelChanger {
 
     @Mixin(ProtectionEnchantment.class)
     public static abstract class Protection {

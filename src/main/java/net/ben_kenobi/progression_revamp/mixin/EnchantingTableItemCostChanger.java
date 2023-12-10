@@ -11,6 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.EnchantmentScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
+/**
+ * Changes the item needed to enchant items from lapis lazuli to enchanting catalysts.
+ */
 @Mixin(EnchantmentScreenHandler.class)
 public abstract class EnchantingTableItemCostChanger {
 

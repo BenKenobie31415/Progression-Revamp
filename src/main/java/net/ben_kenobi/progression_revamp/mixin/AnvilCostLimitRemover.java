@@ -7,8 +7,14 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import net.minecraft.client.gui.screen.ingame.AnvilScreen;
 import net.minecraft.screen.AnvilScreenHandler;
 
+/**
+ * Removes the anvil level limit
+ */
 public abstract class AnvilCostLimitRemover {
 
+    /**
+     * Removes the 40 level limit on anvil usage.
+     */
     @Mixin(AnvilScreenHandler.class)
     public static abstract class LimitRemover {
         @ModifyConstant(method = "updateResult", constant = @Constant(intValue = 40))
@@ -17,6 +23,9 @@ public abstract class AnvilCostLimitRemover {
         }
     }
 
+    /**
+     * Removes the cross pattern from the anvil ui if level costs are above 40.
+     */
     @Mixin(AnvilScreen.class)
     public static abstract class TextRemover {
         @ModifyConstant(method = "drawForeground", constant = @Constant(intValue = 40))

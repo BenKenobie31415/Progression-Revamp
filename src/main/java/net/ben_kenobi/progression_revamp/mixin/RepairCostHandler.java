@@ -16,6 +16,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 
+/**
+ * Limits the repair cost of items with the Mending enchantment.
+ */
 @Mixin(ItemStack.class)
 public abstract class RepairCostHandler {
     @Shadow

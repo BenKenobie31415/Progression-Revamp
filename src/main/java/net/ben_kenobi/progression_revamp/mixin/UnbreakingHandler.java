@@ -32,7 +32,14 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.random.Random;
 
+/**
+ * Changes the behavior of the Unbreaking enchantment.
+ * Now it will only prevent items from fully breaking but does not slower the rate of damage.
+ */
 public abstract class UnbreakingHandler {
+    /**
+     * Disables the normal effect of Unbreaking.
+     */
     @Mixin(UnbreakingEnchantment.class)
     public static abstract class UnbreakableMaker {
         @Inject(method = "shouldPreventDamage", at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
@@ -49,6 +56,9 @@ public abstract class UnbreakingHandler {
         }
     }
 
+    /**
+     * Reduces the armor-value of an entity if armor pieces are broken.
+     */
     @Mixin(LivingEntity.class)
     public static abstract class ArmorReducer {
         @Shadow
@@ -56,7 +66,6 @@ public abstract class UnbreakingHandler {
 
         @Redirect(method = "getArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D"))
         private double reduceArmorIfBroken(LivingEntity livingEntity, EntityAttribute attribute) {
-            System.out.println("executed");
             double armorReduction = 0.0d;
             Iterable<ItemStack> armorItems = getArmorItems();
 
@@ -79,6 +88,9 @@ public abstract class UnbreakingHandler {
         }
     }
 
+    /**
+     * Reduces the attack damage of a player if the weapon is broken.
+     */
     @Mixin(PlayerEntity.class)
     public static abstract class AttackDamageReducer {
         @Redirect(method = "attack", at =  @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D"))
@@ -114,8 +126,11 @@ public abstract class UnbreakingHandler {
         }
     }
 
+    /**
+     * Disables all tool functionality if the tool is broken.
+     */
     @Mixin(ItemStack.class)
-    public static abstract class MiningToolSpeedReducer {
+    public static abstract class ToolFunctionalityDisabler {
         @Shadow
         public abstract int getDamage();
         @Shadow
