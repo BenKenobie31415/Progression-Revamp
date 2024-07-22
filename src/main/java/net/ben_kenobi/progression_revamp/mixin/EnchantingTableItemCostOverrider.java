@@ -21,16 +21,16 @@ public class EnchantingTableItemCostOverrider {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/EnchantmentScreenHandler;addSlot(Lnet/minecraft/screen/slot/Slot;)Lnet/minecraft/screen/slot/Slot;", ordinal = 1), index = 0)
     public Slot changeSlot(Slot oldSlot) {
         return new Slot(this.inventory, oldSlot.getIndex(), oldSlot.x, oldSlot.y){
-            @Override
+            /*@Override
             public boolean canInsert(ItemStack stack) {
                 return stack.isOf(ModItems.ENCHANTING_CATALYST);
-            }
+            }*/
         };
     }
 
-    @ModifyArg(method = "quickMove",
+    /*@ModifyArg(method = "quickMove",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 0), index = 0)
     public Item changeItem(Item oldItem) {
         return ModItems.ENCHANTING_CATALYST;
-    }
+    }*/
 }

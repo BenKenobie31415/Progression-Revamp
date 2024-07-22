@@ -56,7 +56,6 @@ public abstract class UnbreakingHandler {
 
         @Redirect(method = "getArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D"))
         private double reduceArmorIfBroken(LivingEntity livingEntity, EntityAttribute attribute) {
-            System.out.println("executed");
             double armorReduction = 0.0d;
             Iterable<ItemStack> armorItems = getArmorItems();
 
